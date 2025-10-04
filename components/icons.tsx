@@ -90,3 +90,15 @@ export const UsersIcon: React.FC<IconProps> = ({ className = defaultIconClass })
       <path strokeLinecap="round" strokeLinejoin="round" d="M18 18.72a9.094 9.094 0 003.741-.479 3 3 0 00-4.682-2.72m-7.5-2.962c.57-1.023.57-2.206 0-3.228m-5.541 9.491a9.095 9.095 0 01-3.741-.479 3 3 0 014.682-2.72m-7.5-2.962c-.57 1.023-.57 2.206 0 3.228m12.454-9.491c.572-.446 1.283-.446 1.855 0a3 3 0 014.682 2.72m-7.5 2.962c.57 1.023.57 2.206 0 3.228m0 0a3 3 0 10-5.542 2.087m5.542-2.087a3 3 0 115.542 2.087m0 0a9.094 9.094 0 01-9.558 2.14m-2.25-2.14a9.094 9.094 0 00-9.558 2.14m0 0a3 3 0 01-4.682-2.72m7.5 2.962c-.57-1.023-.57-2.206 0-3.228m0 0a3 3 0 10-5.542-2.087m5.542-2.087a3 3 0 115.542 2.087" />
     </svg>
   );
+  
+export const ChatBubbleOvalLeftEllipsisIcon: React.FC<IconProps> = ({ className = defaultIconClass }) => (
+    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className={className}>
+      <path strokeLinecap="round" strokeLinejoin="round" d="M8.625 12a.375.375 0 11-.75 0 .375.375 0 01.75 0zm0 0H8.25m4.125 0a.375.375 0 11-.75 0 .375.375 0 01.75 0zm0 0H12m4.125 0a.375.375 0 11-.75 0 .375.375 0 01.75 0zm0 0h-.375M21 12c0 4.556-4.03 8.25-9 8.25a9.76 9.76 0 01-2.53-.388m-5.383-.948a.863.863 0 01.44-1.283A4.373 4.373 0 0014.25 6.75c-2.451 0-4.556 1.003-5.962 2.536a4.373 4.373 0 01-4.42 1.283.863.863 0 00-1.283.44A4.373 4.373 0 003 12.75c0 2.451 1.003 4.556 2.536 5.962a4.373 4.373 0 011.283 4.42.863.863 0 00.44 1.283 4.373 4.373 0 005.962-2.536A9.76 9.76 0 0112 20.25c4.97 0 9-3.694 9-8.25z" />
+    </svg>
+);
+
+export const CpuChipIcon: React.FC<IconProps> = ({ className = defaultIconClass }) => (
+    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className={className}>
+        <path strokeLinecap="round" strokeLinejoin="round" d="M8.25 3v1.5M4.5 8.25H3m18 0h-1.5M4.5 12H3m18 0h-1.5m-15 3.75H3m18 0h-1.5M8.25 21v-1.5M15.75 3v1.5M12 4.5v-1.5m0 18v-1.5M15.75 21v-1.5M18 15.75h1.5M18 12h1.5m-15 0H6m12 0h1.5m-15 3.75H6M12 18v1.5m-3.75-18v1.5M12 9a3 3 0 100 6 3 3 0 000-6z" />
+    </svg>
+);
