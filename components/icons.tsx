@@ -43,8 +43,9 @@ export const StreamlitIcon: React.FC<IconProps> = ({ className = "h-6 w-6" }) =>
     </svg>
 );
 
-export const WebsiteIcon: React.FC<IconProps> = ({ className = "h-6 w-6" }) => (
+export const WebsiteIcon: React.FC<IconProps> = ({ className = defaultIconClass }) => (
     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className={className}>
+        <path strokeLinecap="round" strokeLinejoin="round" d="M12 21a9 9 0 01-.3-17.983A9 9 0 0112 3c4.97 0 9 4.03 9 9s-4.03 9-9 9zM9 8.25a.75.75 0 01.75.75v6a.75.75 0 01-1.5 0v-6A.75.75 0 019 8.25zm4.5 0a.75.75 0 01.75.75v6a.75.75 0 01-1.5 0v-6a.75.75 0 01.75-.75z" />
         <path strokeLinecap="round" strokeLinejoin="round" d="M13.19 8.688a4.5 4.5 0 011.242 7.244l-4.5 4.5a4.5 4.5 0 01-6.364-6.364l1.757-1.757m13.35-.622l1.757-1.757a4.5 4.5 0 00-6.364-6.364l-4.5 4.5a4.5 4.5 0 001.242 7.244" />
     </svg>
 );

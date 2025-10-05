@@ -1,5 +1,5 @@
 import React from 'react';
-import { ChatBubbleOvalLeftEllipsisIcon, CpuChipIcon } from './icons';
+import { ChatBubbleOvalLeftEllipsisIcon, CpuChipIcon, WebsiteIcon } from './icons';
 
 const projectData = [
   {
@@ -39,6 +39,16 @@ const projectData = [
       {
         title: 'Image Captions Generator',
         link: 'https://image-caption-generator-msme1514.streamlit.app/',
+      },
+    ],
+  },
+  {
+    category: 'Web Applications',
+    icon: <WebsiteIcon />,
+    items: [
+      {
+        title: 'Ezzi Home Gadgets Ecommerce store',
+        link: 'https://ezzi-home-gadgets.vercel.app/',
       },
     ],
   },
