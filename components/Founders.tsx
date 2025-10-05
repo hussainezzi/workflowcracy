@@ -5,7 +5,7 @@ const founders = [
   {
     name: 'Muhammed Ezzi',
     title: 'Chairman',
-    bio: "Visionary and Future-Oriented Business Motivator. He motivates in the light of, Syedna Mufaddal Saifuddin (TUS)'s businees mindedness philosophy, his fellow community members to establish business even at bare scopes.",
+    bio: "Visionary and Future-Oriented Business Motivator. He motivates, in the light of Syedna Mufaddal Saifuddin (TUS)'s businees mindedness philosophy, his fellow community members, to establish business even at bare scopes.",
     website: 'https://jameasaifiyah.edu/',
     avatar: 'data:image/svg+xml;base64,PHN2ZyB2aWV3Qm94PSIwIDAgMTAwIDEwMCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KICA8Y2lyY2xlIGN4PSI1MCIgY3k9IjUwIiByPSI1MCIgZmlsbD0iIzQyQTVGNSIvPgogIDxwYXRoIGQ9Ik01MCA1OCBDIDQ2IDU4LCA0NCA1NSwgNDQgNTEgQyA0NCA0NSwgNDcgNDAsIDUwIDQwIEMgNTMgNDAsIDU2IDQ1LCA1NiA1MSBDIDU2IDU1LCA1NCA1OCwgNTAgNTggWiBNNTAgNjAgQyA2NCA2MCwgNzIgNjgsIDcyIDgyIEwgMjggODIgQyAyOCA2OCwgMzYgNjAsIDUwIDYwIFoiIGZpbGw9IiNGRkZFRkUiLz4KPC9zdmc+'
   },

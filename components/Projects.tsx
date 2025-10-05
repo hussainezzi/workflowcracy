@@ -50,6 +50,10 @@ const projectData = [
         title: 'Ezzi Home Gadgets Ecommerce store',
         link: 'https://ezzi-home-gadgets.vercel.app/',
       },
+      {
+        title: 'Fruit Pop Boba store',
+        link: 'https://fruitypopboba.vercel.app/',
+      },
     ],
   },
 ];
