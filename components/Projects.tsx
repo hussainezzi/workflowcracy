@@ -54,6 +54,10 @@ const projectData = [
         title: 'Fruit Pop Boba store',
         link: 'https://fruitypopboba.vercel.app/',
       },
+      {
+        title: 'Quran Majeed Memorization Goal Tracker',
+        link: 'https://hifz-goal-tracker.vercel.app/',
+      },
     ],
   },
 ];
