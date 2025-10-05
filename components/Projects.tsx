@@ -7,8 +7,12 @@ const projectData = [
     icon: <ChatBubbleOvalLeftEllipsisIcon />,
     items: [
       {
-        title: 'Scholarship Data Chatbots',
+        title: 'Scholarship Data Chatbot',
         link: 'https://n8n.aiwithezzi.cfd/webhook/4091fa09-fb9a-4039-9411-7104d213f601/chat',
+      },
+      {
+        title: 'Google Map Scraper AI Agent',
+        link: 'https://n8n.aiwithezzi.cfd/webhook/1368b305-38cc-4d34-be78-fd57edcbc755/chat',
       },
     ],
   },
