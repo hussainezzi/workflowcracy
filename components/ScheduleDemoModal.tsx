@@ -26,6 +26,7 @@ const ScheduleDemoModal: React.FC<ScheduleDemoModalProps> = ({ isOpen, onClose }
     email: '',
   });
   const [isFormValid, setIsFormValid] = useState(false);
+  const [isSubmitting, setIsSubmitting] = useState(false);
 
   useEffect(() => {
     const handleEsc = (event: KeyboardEvent) => {
@@ -66,12 +67,39 @@ const ScheduleDemoModal: React.FC<ScheduleDemoModalProps> = ({ isOpen, onClose }
     );
   };
 
-  const handleSendWhatsApp = () => {
-    if (!isFormValid) {
-      alert('Please fill in your name and select at least one service.');
-      return;
+  const handleSubmit = async () => {
+    if (!isFormValid || isSubmitting) return;
+
+    setIsSubmitting(true);
+
+    // --- Step 1: Send data to Google Sheet via Apps Script ---
+    // IMPORTANT: Replace this placeholder with your actual Google Apps Script URL from Step 3
+    const googleSheetUrl = 'https://script.google.com/macros/s/AKfycbzS_Mo2JpHFadPM738BEuq1w5L1wEnSPk5pAhbBbvpQcKTBNLXF0YhYBwgm5APpjFk/exec';
+
+    try {
+      const submissionData = {
+        name: formData.name.trim(),
+        company: formData.company.trim(),
+        email: formData.email.trim(),
+        services: selectedServices,
+      };
+      
+      // Use 'text/plain' for the body to work with the 'no-cors' mode of fetch
+      await fetch(googleSheetUrl, {
+        method: 'POST',
+        mode: 'no-cors', 
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(submissionData),
+      });
+
+    } catch (error) {
+      console.error("Error submitting to Google Sheet:", error);
+      // We will still proceed to WhatsApp even if this fails
     }
 
+    // --- Step 2: Open WhatsApp link ---
     let message = `Hello, my name is ${formData.name.trim()}`;
     if (formData.company.trim()) {
       message += ` from ${formData.company.trim()}`;
@@ -94,6 +122,8 @@ You can also reach me at: ${formData.email.trim()}`;
     const encodedMessage = encodeURIComponent(message);
     const phoneNumber = '923182339392';
     window.open(`https://wa.me/${phoneNumber}?text=${encodedMessage}`, '_blank');
+    
+    setIsSubmitting(false);
     onClose();
   };
 
@@ -152,11 +182,11 @@ You can also reach me at: ${formData.email.trim()}`;
         </div>
 
         <button
-          onClick={handleSendWhatsApp}
-          disabled={!isFormValid}
+          onClick={handleSubmit}
+          disabled={!isFormValid || isSubmitting}
           className="w-full bg-secondary text-white font-bold py-3 px-8 rounded-full text-lg hover:bg-orange-600 transition-all transform hover:scale-105 disabled:bg-orange-300 disabled:cursor-not-allowed disabled:scale-100"
         >
-          Send via WhatsApp
+          {isSubmitting ? 'Submitting...' : 'Send via WhatsApp'}
         </button>
       </div>
        <style>{`
