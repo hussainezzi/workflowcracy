@@ -28,6 +28,10 @@
       body {
         font-family: 'Poppins', sans-serif;
       }
+      .ai-node {
+        /* Base styles for the AI node, animations are now handled by anime.js */
+        fill: var(--color-secondary);
+      }
     </style>
   <script type="importmap">
 {
@@ -41,6 +45,7 @@
 </head>
   <body>
     <div id="root"></div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js"></script>
     <script type="module" src="/index.tsx"></script>
     <script>
 (function(){if(!window.chatbase||window.chatbase("getState")!=="initialized"){window.chatbase=(...arguments)=>{if(!window.chatbase.q){window.chatbase.q=[]}window.chatbase.q.push(arguments)};window.chatbase=new Proxy(window.chatbase,{get(target,prop){if(prop==="q"){return target.q}return(...args)=>target(prop,...args)}})}const onLoad=function(){const script=document.createElement("script");script.src="https://www.chatbase.co/embed.min.js";script.id="tCCsulfxVm3TRcXwI0mwU";script.domain="www.chatbase.co";document.body.appendChild(script)};if(document.readyState==="complete"){onLoad()}else{window.addEventListener("load",onLoad)}})();
