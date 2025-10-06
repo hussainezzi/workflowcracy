@@ -103,3 +103,9 @@ export const CpuChipIcon: React.FC<IconProps> = ({ className = defaultIconClass 
         <path strokeLinecap="round" strokeLinejoin="round" d="M8.25 3v1.5M4.5 8.25H3m18 0h-1.5M4.5 12H3m18 0h-1.5m-15 3.75H3m18 0h-1.5M8.25 21v-1.5M15.75 3v1.5M12 4.5v-1.5m0 18v-1.5M15.75 21v-1.5M18 15.75h1.5M18 12h1.5m-15 0H6m12 0h1.5m-15 3.75H6M12 18v1.5m-3.75-18v1.5M12 9a3 3 0 100 6 3 3 0 000-6z" />
     </svg>
 );
+
+export const XIcon: React.FC<IconProps> = ({ className = "h-6 w-6" }) => (
+  <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className={className}>
+    <path strokeLinecap="round" strokeLinejoin="round" d="M6 18L18 6M6 6l12 12" />
+  </svg>
+);

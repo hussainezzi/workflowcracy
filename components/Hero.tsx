@@ -1,9 +1,12 @@
-import React, { useEffect, useMemo } from 'react';
+import React, { useEffect, useMemo, useState } from 'react';
+import ScheduleDemoModal from './ScheduleDemoModal';
 
 // Add type definition for anime.js to avoid TypeScript errors.
 declare const anime: any;
 
 const Hero: React.FC = () => {
+  const [isModalOpen, setIsModalOpen] = useState(false);
+
   const width = 1920;
   const height = 1080;
   const numNodes = 30;
@@ -161,13 +164,14 @@ const Hero: React.FC = () => {
         <p className="text-lg md:text-xl mt-8 mb-8 text-cyan-200 max-w-3xl mx-auto">
           We leverage cutting-edge AI to streamline your operations, boost efficiency, and unlock your business's true potential.
         </p>
-        <a
-          href="#contact"
+        <button
+          onClick={() => setIsModalOpen(true)}
           className="bg-secondary text-white font-bold py-3 px-8 rounded-full text-lg hover:bg-orange-600 transition-all transform hover:scale-105 inline-block"
         >
           Schedule a Free Demo
-        </a>
+        </button>
       </div>
+      <ScheduleDemoModal isOpen={isModalOpen} onClose={() => setIsModalOpen(false)} />
     </section>
   );
 };
