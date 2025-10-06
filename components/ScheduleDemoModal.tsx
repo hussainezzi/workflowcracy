@@ -20,6 +20,12 @@ const services = [
 
 const ScheduleDemoModal: React.FC<ScheduleDemoModalProps> = ({ isOpen, onClose }) => {
   const [selectedServices, setSelectedServices] = useState<string[]>([]);
+  const [formData, setFormData] = useState({
+    name: '',
+    company: '',
+    email: '',
+  });
+  const [isFormValid, setIsFormValid] = useState(false);
 
   useEffect(() => {
     const handleEsc = (event: KeyboardEvent) => {
@@ -41,6 +47,17 @@ const ScheduleDemoModal: React.FC<ScheduleDemoModalProps> = ({ isOpen, onClose }
     };
   }, [isOpen, onClose]);
 
+  useEffect(() => {
+    // Validate form: name must not be empty and at least one service must be selected
+    setIsFormValid(formData.name.trim() !== '' && selectedServices.length > 0);
+  }, [formData.name, selectedServices]);
+
+
+  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const { name, value } = e.target;
+    setFormData(prev => ({ ...prev, [name]: value }));
+  };
+
   const handleCheckboxChange = (service: string) => {
     setSelectedServices(prev =>
       prev.includes(service)
@@ -50,12 +67,30 @@ const ScheduleDemoModal: React.FC<ScheduleDemoModalProps> = ({ isOpen, onClose }
   };
 
   const handleSendWhatsApp = () => {
-    if (selectedServices.length === 0) {
-      alert('Please select at least one service.');
+    if (!isFormValid) {
+      alert('Please fill in your name and select at least one service.');
       return;
     }
-    const selectedServicesText = selectedServices.join(', ');
-    const message = `Hello! I'd like to schedule a free consultation for the following services: ${selectedServicesText}.`;
+
+    let message = `Hello, my name is ${formData.name.trim()}`;
+    if (formData.company.trim()) {
+      message += ` from ${formData.company.trim()}`;
+    }
+    message += `.
+
+I'm proactively looking to enhance our business processes and I'm very interested in how we can leverage your expertise.
+
+Specifically, I'd like to discuss the following services:
+- ${selectedServices.join('\n- ')}
+
+Ready to explore how we can implement these solutions. Please let me know the next steps for a consultation.`;
+
+    if (formData.email.trim()) {
+      message += `
+
+You can also reach me at: ${formData.email.trim()}`;
+    }
+
     const encodedMessage = encodeURIComponent(message);
     const phoneNumber = '923182339392';
     window.open(`https://wa.me/${phoneNumber}?text=${encodedMessage}`, '_blank');
@@ -83,12 +118,28 @@ const ScheduleDemoModal: React.FC<ScheduleDemoModalProps> = ({ isOpen, onClose }
           <XIcon className="h-6 w-6" />
         </button>
 
-        <h2 className="text-2xl font-bold text-primary mb-4">Request a Free Consultation</h2>
-        <p className="text-slate-600 mb-6">Select the services you're interested in, and we'll get in touch via WhatsApp.</p>
+        <h2 className="text-2xl font-bold text-primary mb-2">Request a Free Consultation</h2>
+        <p className="text-slate-600 mb-6">Let's discuss how we can elevate your business.</p>
         
-        <div className="space-y-3 max-h-60 overflow-y-auto pr-2 mb-6">
+        <div className="space-y-4 mb-6">
+          <div>
+            <label htmlFor="name" className="block text-sm font-medium text-slate-700 mb-1">Name <span className="text-red-500">*</span></label>
+            <input type="text" name="name" id="name" value={formData.name} onChange={handleInputChange} className="w-full px-3 py-2 border border-slate-300 rounded-md shadow-sm focus:ring-primary focus:border-primary" placeholder="e.g., John Doe" required />
+          </div>
+          <div>
+            <label htmlFor="company" className="block text-sm font-medium text-slate-700 mb-1">Company / Shop Name <span className="text-slate-400">(Optional)</span></label>
+            <input type="text" name="company" id="company" value={formData.company} onChange={handleInputChange} className="w-full px-3 py-2 border border-slate-300 rounded-md shadow-sm focus:ring-primary focus:border-primary" placeholder="e.g., Innovate Inc." />
+          </div>
+           <div>
+            <label htmlFor="email" className="block text-sm font-medium text-slate-700 mb-1">Email <span className="text-slate-400">(Optional)</span></label>
+            <input type="email" name="email" id="email" value={formData.email} onChange={handleInputChange} className="w-full px-3 py-2 border border-slate-300 rounded-md shadow-sm focus:ring-primary focus:border-primary" placeholder="e.g., john.doe@example.com" />
+          </div>
+        </div>
+        
+        <p className="text-sm font-medium text-slate-700 mb-2">I'm interested in... <span className="text-red-500">*</span></p>
+        <div className="space-y-3 max-h-48 overflow-y-auto pr-2 mb-6 border rounded-md p-3">
           {services.map(service => (
-            <label key={service} className="flex items-center p-3 rounded-lg hover:bg-slate-100 transition-colors cursor-pointer">
+            <label key={service} className="flex items-center p-2 rounded-lg hover:bg-slate-100 transition-colors cursor-pointer">
               <input
                 type="checkbox"
                 className="h-5 w-5 rounded border-gray-300 text-primary focus:ring-primary"
@@ -102,7 +153,7 @@ const ScheduleDemoModal: React.FC<ScheduleDemoModalProps> = ({ isOpen, onClose }
 
         <button
           onClick={handleSendWhatsApp}
-          disabled={selectedServices.length === 0}
+          disabled={!isFormValid}
           className="w-full bg-secondary text-white font-bold py-3 px-8 rounded-full text-lg hover:bg-orange-600 transition-all transform hover:scale-105 disabled:bg-orange-300 disabled:cursor-not-allowed disabled:scale-100"
         >
           Send via WhatsApp
