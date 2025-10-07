@@ -1,7 +1,59 @@
 import React from 'react';
-import { ChatBubbleOvalLeftEllipsisIcon, CpuChipIcon, WebsiteIcon } from './icons';
+import { ChatBubbleOvalLeftEllipsisIcon, CpuChipIcon, WebsiteIcon, BoltIcon, SunIcon } from './icons';
 
 const projectData = [
+  {
+    category: 'Business Magics with Generative AI',
+    icon: <BoltIcon />,
+    items: [
+      {
+        title: 'Lesson Architect AI',
+        link: 'https://lesson-architect.vercel.app/',
+      },
+      {
+        title: 'AI Recipe Inventor',
+        link: 'https://ai-recipe-inventor.vercel.app/',
+      },
+      {
+        title: 'Real Estate Collateral AI',
+        link: 'https://real-estate-collateral-ai.vercel.app/',
+      },
+      {
+        title: 'AI Apparel Studio',
+        link: 'https://apparel-ai-studio.vercel.app/',
+      },
+      {
+        title: 'Game Concept Maker',
+        link: 'https://indie-game-concept-prototyper.vercel.app/',
+      },
+    ],
+  },
+  {
+    category: 'Solar Panel Business With Gen AI',
+    icon: <SunIcon />,
+    items: [
+      {
+        title: 'AI Solar Site Assessor',
+        link: 'https://solar-ai-assessor.vercel.app/',
+      },
+      {
+        title: 'Solar Genius Sales PWA',
+        link: 'https://solar-genius-pwa.vercel.app/',
+      },
+      {
+        title: 'Dynamic Solar Proposal Presenter',
+        link: 'https://solar-genius-presenter.vercel.app/',
+      },
+      {
+        title: 'AI Pre-Installation Checklist',
+        link: 'https://solar-pre-installation-checklist-ai.vercel.app/',
+      },
+      {
+        title: 'Solar Success AI Toolkit',
+        link: 'https://solar-success-ai.vercel.app/',
+      },
+    ],
+  },
   {
     category: 'Business Chatbots',
     icon: <ChatBubbleOvalLeftEllipsisIcon />,
