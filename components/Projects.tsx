@@ -33,10 +33,6 @@ const projectData = [
     icon: <SunIcon />,
     items: [
       {
-        title: 'AI Solar Site Assessor',
-        link: 'https://solar-ai-assessor.vercel.app/',
-      },
-      {
         title: 'Solar Genius Sales PWA',
         link: 'https://solar-genius-pwa.vercel.app/',
       },
@@ -116,10 +112,10 @@ const projectData = [
 
 const Projects: React.FC = () => {
   return (
-    <section id="projects" className="py-20 bg-white">
+    <section id="our-projects" className="py-20 bg-white">
       <div className="container mx-auto px-6">
         <div className="text-center mb-12">
-          <h2 className="text-3xl md:text-4xl font-bold text-dark">Explore Our Live Projects</h2>
+          <h2 className="text-3xl md:text-4xl font-bold text-dark">Our Projects</h2>
           <p className="text-slate-600 mt-4 max-w-2xl mx-auto">
             See our expertise in action with these live applications and demos.
           </p>

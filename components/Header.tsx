@@ -40,6 +40,7 @@ const Header: React.FC = () => {
   const navLinks = [
     { name: 'Services', href: '#services' },
     { name: 'How It Works', href: '#how-it-works' },
+    { name: 'Our Projects', href: '#our-projects', highlight: true },
     { name: 'Testimonials', href: '#testimonials' },
     { name: 'Contact', href: '#contact' },
   ];
@@ -54,7 +55,12 @@ const Header: React.FC = () => {
           </a>
           <div className="hidden md:flex items-center space-x-4 lg:space-x-6">
             {navLinks.map((link) => (
-              <a key={link.name} href={link.href} onClick={handleNavClick} className={`font-medium whitespace-nowrap transition-colors ${isScrolled ? 'text-dark hover:text-primary' : 'text-white hover:text-cyan-200'}`}>
+              <a 
+                key={link.name} 
+                href={link.href} 
+                onClick={handleNavClick} 
+                className={`font-medium whitespace-nowrap transition-colors ${isScrolled ? 'text-dark hover:text-primary' : 'text-white hover:text-cyan-200'} ${link.highlight ? 'highlight-link' : ''}`}
+              >
                 {link.name}
               </a>
             ))}
@@ -74,7 +80,12 @@ const Header: React.FC = () => {
           <div className="md:hidden mt-4 bg-white rounded-lg shadow-xl p-4">
             <nav className="flex flex-col space-y-4">
               {navLinks.map((link) => (
-                <a key={link.name} href={link.href} onClick={handleNavClick} className="text-dark hover:text-primary transition-colors font-medium text-center">
+                <a 
+                  key={link.name} 
+                  href={link.href} 
+                  onClick={handleNavClick} 
+                  className={`text-dark hover:text-primary transition-colors font-medium text-center ${link.highlight ? 'highlight-link' : ''}`}
+                >
                   {link.name}
                 </a>
               ))}
