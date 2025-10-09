@@ -1,5 +1,5 @@
 import React from 'react';
-import { ChatBubbleOvalLeftEllipsisIcon, CpuChipIcon, WebsiteIcon, BoltIcon, SunIcon } from './icons';
+import { ChatBubbleOvalLeftEllipsisIcon, CpuChipIcon, WebsiteIcon, BoltIcon, SunIcon, ChartBarIcon } from './icons';
 
 const projectData = [
   {
@@ -87,6 +87,28 @@ const projectData = [
       {
         title: 'Image Captions Generator',
         link: 'https://image-caption-generator-msme1514.streamlit.app/',
+      },
+    ],
+  },
+  {
+    category: 'Data Analytics with Power BI',
+    icon: <ChartBarIcon />,
+    items: [
+      {
+        title: 'Business Insights 360',
+        link: 'https://app.powerbi.com/view?r=eyJrIjoiZTMzMjBiYWYtYjdlNS00Y2I2LWJhYjItMzE3MWE5MWYyYjI4IiwidCI6ImM2ZTU0OWIzLTVmNDUtNDAzMi1hYWU5LWQ0MjQ0ZGM1YjJjNCJ9',
+      },
+      {
+        title: 'IPL Analysis',
+        link: 'https://app.powerbi.com/view?r=eyJrIjoiZjAyYjBlNTctYzc4Yy00YWRiLTg4YmEtNDFjYmVjMTE1ODRmIiwidCI6ImM2ZTU0OWIzLTVmNDUtNDAzMi1hYWU5LWQ0MjQ0ZGM1YjJjNCJ9',
+      },
+      {
+        title: 'Revenue Insights for AtliQ Hotels',
+        link: 'https://app.powerbi.com/view?r=eyJrIjoiZDdiOWVkZjAtYzMzMC00YjFmLWEyMzgtMzU5MjVkZGUxZDkzIiwidCI6ImM2ZTU0OWIzLTVmNDUtNDAzMi1hYWU5LWQ0MjQ0ZGM1YjJjNCJ9',
+      },
+      {
+        title: 'Road Accident Analysis',
+        link: 'https://app.powerbi.com/view?r=eyJrIjoiMDg1OTBiOWItY2Q0ZC00OTJiLWJmODktZTFhMmYxMzM4Mjk0IiwidCI6ImM2ZTU0OWIzLTVmNDUtNDAzMi1hYWU5LWQ0MjQ0ZGM1YjJjNCJ9',
       },
     ],
   },
