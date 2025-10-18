@@ -1,5 +1,5 @@
 import React from 'react';
-import { ChatBubbleOvalLeftEllipsisIcon, CpuChipIcon, WebsiteIcon, BoltIcon, SunIcon, ChartBarIcon } from './icons';
+import { CpuChipIcon, WebsiteIcon, BoltIcon, SunIcon, ChartBarIcon, CogIcon } from './icons';
 
 const projectData = [
   {
@@ -51,9 +51,17 @@ const projectData = [
     ],
   },
   {
-    category: 'Business Chatbots',
-    icon: <ChatBubbleOvalLeftEllipsisIcon />,
+    category: 'n8n Automation Workflows',
+    icon: <CogIcon />,
     items: [
+      {
+        title: 'Gmail Auto Labeling',
+        link: 'https://n8n.srv1069133.hstgr.cloud/workflow/okI529F7dooyLAje',
+      },
+      {
+        title: 'Task Managment bot',
+        link: 'https://n8n.srv1069133.hstgr.cloud/webhook/df8223bf-119c-44d5-9bbf-f74ae26828e8/chat',
+      },
       {
         title: 'Scholarship Data Chatbot',
         link: 'https://n8n.aiwithezzi.cfd/webhook/4091fa09-fb9a-4039-9411-7104d213f601/chat',
@@ -127,6 +135,10 @@ const projectData = [
       {
         title: 'Quran Majeed Memorization Goal Tracker',
         link: 'https://hifz-goal-tracker.vercel.app/',
+      },
+      {
+        title: 'AI WITH EZZI',
+        link: 'https://ai-with-ezzi.vercel.app/',
       },
     ],
   },
