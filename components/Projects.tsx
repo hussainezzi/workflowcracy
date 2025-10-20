@@ -26,6 +26,10 @@ const projectData = [
         title: 'Game Concept Maker',
         link: 'https://indie-game-concept-prototyper.vercel.app/',
       },
+      {
+        title: 'Kindergarten Worksheet Generator',
+        link: 'https://kindergarten-worksheet-generator.vercel.app/',
+      },
     ],
   },
   {
@@ -139,6 +143,10 @@ const projectData = [
       {
         title: 'AI WITH EZZI',
         link: 'https://ai-with-ezzi.vercel.app/',
+      },
+      {
+        title: 'Ezzi Home Automation',
+        link: 'https://ezzi-home-automation.vercel.app/',
       },
     ],
   },
