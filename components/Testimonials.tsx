@@ -1,21 +1,22 @@
 
+
 import React from 'react';
 
 const testimonials = [
   {
-    quote: "WorkflowCracy made a fast, and simple ecommerce workflow using a webstore front to enhacne online presence. The colorful fruity UI and simple checkout process was wondeful",
+    quote: "AI with Ezzi made a fast, and simple ecommerce workflow using a webstore front to enhacne online presence. The colorful fruity UI and simple checkout process was wondeful",
     author: 'Dr Murtaza Rasheed',
     title: 'Founder, Fruity Pop Boba',
     avatar: 'https://res.cloudinary.com/de0cllasz/image/upload/v1760028149/murtaza_bhai_ezsy8v.jpg'
   },
   {
-    quote: "WorflowCracy built fantastic Gen AI apps that helps me convince clients, plan operations and assess feedback. It has powered me up 50% more  ",
+    quote: "AI with Ezzi built fantastic Gen AI apps that helps me convince clients, plan operations and assess feedback. It has powered me up 50% more  ",
     author: 'Taher Mohammed',
     title: 'Associate Engineer at Raj Solar',
      avatar: 'https://res.cloudinary.com/de0cllasz/image/upload/v1760028849/tahr_photo_gfxssu.png'
   },
   {
-    quote: "I was skeptical about AI automation, but WorkflowCracy delivered beyond my expectations. Our efficiency is up, and errors are down. I highly recommend them.",
+    quote: "I was skeptical about AI automation, but AI with Ezzi delivered beyond my expectations. Our efficiency is up, and errors are down. I highly recommend them.",
     author: 'Samantha Bee',
     title: 'CEO, Creative Co.',
     avatar: 'data:image/svg+xml;base64,PHN2ZyB2aWV3Qm94PSIwIDAgMTAwIDEwMCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KICA8Y2lyY2xlIGN4PSI1MCIgY3k9IjUwIiByPSI1MCIgZmlsbD0iIzQyQTVGNSIvPgogIDxwYXRoIGQ9Ik01MCA1OCBDIDQ2IDU4LCA0NCA1NSwgNDQgNTEgQyA0NCA0NSwgNDcgNDAsIDUwIDQwIEMgNTMgNDAsIDU2IDQ1LCA1NiA1MSBDIDU2IDU1LCA1NCA1OCwgNTAgNTggWiBNNTAgNjAgQyA2NCA2MCwgNzIgNjgsIDcyIDgyIEwgMjggODIgQyAyOCA2OCwgMzYgNjAsIDUwIDYwIFoiIGZpbGw9IiNGRkZFRkUiLz4KPC9zdmc+'

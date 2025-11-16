@@ -1,5 +1,5 @@
 import React from 'react';
-import { CpuChipIcon, WebsiteIcon, BoltIcon, SunIcon, ChartBarIcon, CogIcon } from './icons';
+import { CpuChipIcon, WebsiteIcon, BoltIcon, SunIcon, ChartBarIcon, CogIcon, BriefcaseIcon } from './icons';
 
 const projectData = [
   {
@@ -29,6 +29,10 @@ const projectData = [
       {
         title: 'Kindergarten Worksheet Generator',
         link: 'https://kindergarten-worksheet-generator.vercel.app/',
+      },
+      {
+        title: 'Fatemi Tailors Virtual Try-on',
+        link: 'https://fatemi-tailors.vercel.app/',
       },
     ],
   },
@@ -121,6 +125,20 @@ const projectData = [
       {
         title: 'Road Accident Analysis',
         link: 'https://app.powerbi.com/view?r=eyJrIjoiMDg1OTBiOWItY2Q0ZC00OTJiLWJmODktZTFhMmYxMzM4Mjk0IiwidCI6ImM2ZTU0OWIzLTVmNDUtNDAzMi1hYWU5LWQ0MjQ0ZGM1YjJjNCJ9',
+      },
+    ],
+  },
+  {
+    category: 'Enterprise Applications',
+    icon: <BriefcaseIcon />,
+    items: [
+      {
+        title: 'MSB Educational Institute Result Portal',
+        link: 'https://script.google.com/macros/s/AKfycbw2Ky77yKcFASI80B0ARvyTYQWi_ydTbInhJThUUGfsKSRVayfe3RZkytJFlM1-SEOy/exec',
+      },
+      {
+        title: 'Fatemi Tailors Client Portal',
+        link: 'https://script.google.com/macros/s/AKfycbw4V06vbG0ai7trJz2FzVD-bP7PY6qyi1xpWDS2HW82C2TlL18xIDwP1oWqKwGAkNGQvg/exec',
       },
     ],
   },

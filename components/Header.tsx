@@ -51,7 +51,7 @@ const Header: React.FC = () => {
         <div className="flex justify-between items-center">
           <a href="#home" className="flex items-center gap-2" onClick={handleNavClick}>
             <LogoIcon className="h-10 w-auto" />
-            <span className={`text-xl lg:text-2xl font-bold hidden sm:inline transition-colors ${isScrolled ? 'text-primary' : 'text-white'}`}>WorkflowCracy</span>
+            <span className={`text-xl lg:text-2xl font-bold hidden sm:inline transition-colors ${isScrolled ? 'text-primary' : 'text-white'}`}>AI with Ezzi</span>
           </a>
           <div className="hidden md:flex items-center space-x-4 lg:space-x-6">
             {navLinks.map((link) => (

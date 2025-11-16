@@ -7,15 +7,17 @@ interface IconProps {
 const defaultIconClass = "h-8 w-8";
 
 export const LogoIcon: React.FC<IconProps> = ({ className = 'h-12 w-auto' }) => (
-    <svg viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg' className={className} aria-label="WorkflowCracy Logo">
-      <defs>
-        <linearGradient id='logoGradient' x1='0' y1='0' x2='1' y2='1'>
-          <stop offset='0' stopColor='#00BCD4'/>
-          <stop offset='1' stopColor='#007B8A'/>
-        </linearGradient>
-      </defs>
-      <path d='M18 20L35 80L52 40L69 80L86 20' stroke='url(#logoGradient)' strokeWidth='12' fill='none' strokeLinecap='round' strokeLinejoin='round'/>
-      <circle cx='52' cy='38' r='8' fill='#FF8C00'/>
+    <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg" className={className} aria-label="AI with Ezzi Logo">
+        <defs>
+            <linearGradient id="logoGradient" x1="0" y1="0" x2="1" y2="1">
+                <stop offset="0" stopColor="#00BCD4" />
+                <stop offset="1" stopColor="#007B8A" />
+            </linearGradient>
+        </defs>
+        {/* Abstract shape representing 'A' and 'E' */}
+        <path d="M20 80 L50 20 L80 80 M35 50 L65 50" stroke="url(#logoGradient)" strokeWidth="12" fill="none" strokeLinecap="round" strokeLinejoin="round"/>
+        {/* Circle representing the 'I' and the spark of AI */}
+        <circle cx="50" cy="50" r="8" fill="#FF8C00"/>
     </svg>
 );
 
@@ -101,6 +103,12 @@ export const ChatBubbleOvalLeftEllipsisIcon: React.FC<IconProps> = ({ className 
 export const CpuChipIcon: React.FC<IconProps> = ({ className = defaultIconClass }) => (
     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className={className}>
         <path strokeLinecap="round" strokeLinejoin="round" d="M8.25 3v1.5M4.5 8.25H3m18 0h-1.5M4.5 12H3m18 0h-1.5m-15 3.75H3m18 0h-1.5M8.25 21v-1.5M15.75 3v1.5M12 4.5v-1.5m0 18v-1.5M15.75 21v-1.5M18 15.75h1.5M18 12h1.5m-15 0H6m12 0h1.5m-15 3.75H6M12 18v1.5m-3.75-18v1.5M12 9a3 3 0 100 6 3 3 0 000-6z" />
+    </svg>
+);
+
+export const BriefcaseIcon: React.FC<IconProps> = ({ className = defaultIconClass }) => (
+    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className={className}>
+      <path strokeLinecap="round" strokeLinejoin="round" d="M20.25 7.5l-.625 10.632a2.25 2.25 0 01-2.247 2.118H6.622a2.25 2.25 0 01-2.247-2.118L3.75 7.5M10 11.25h4M3.375 7.5h17.25c.621 0 1.125-.504 1.125-1.125V6.375c0-.621-.504-1.125-1.125-1.125H3.375c-.621 0-1.125.504-1.125 1.125v.001c0 .621.504 1.125 1.125 1.125z" />
     </svg>
 );
 

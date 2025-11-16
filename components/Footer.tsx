@@ -10,8 +10,8 @@ const Footer: React.FC = () => {
             <LogoIcon className="h-10 w-auto" />
           </div>
           <div className="text-center md:text-right">
-            <p>&copy; {new Date().getFullYear()} WorkflowCracy. All Rights Reserved.</p>
-            <p className="text-sm">Let's rule the business with Automated Workflows</p>
+            <p>&copy; {new Date().getFullYear()} AI with Ezzi. All Rights Reserved.</p>
+            <p className="text-sm">Be irreplaceable with AI</p>
           </div>
         </div>
       </div>

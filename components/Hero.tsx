@@ -156,13 +156,13 @@ const Hero: React.FC = () => {
       </div>
       <div className="container mx-auto px-6 text-center relative z-20">
         <h1 className="text-5xl md:text-7xl font-bold leading-tight mb-4 tracking-tight">
-          WorkflowCracy
+          AI with Ezzi
         </h1>
         <p className="text-2xl md:text-3xl text-cyan-100 max-w-3xl mx-auto">
-          Rule Your Business with <span className="text-secondary font-semibold">Automated</span> Workflows
+          Be Irreplaceable with <span className="text-secondary font-semibold">AI</span>
         </p>
         <p className="text-lg md:text-xl mt-8 mb-8 text-cyan-200 max-w-3xl mx-auto">
-          We leverage cutting-edge AI to streamline your operations, boost efficiency, and unlock your business's true potential.
+          We empower you with cutting-edge AI solutions to master your work, boost efficiency, and become an indispensable force in your industry.
         </p>
         <button
           onClick={() => setIsModalOpen(true)}

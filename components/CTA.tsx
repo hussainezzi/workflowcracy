@@ -1,4 +1,5 @@
 
+
 import React from 'react';
 
 const CTA: React.FC = () => {
@@ -9,10 +10,10 @@ const CTA: React.FC = () => {
           Ready to Automate Your Business?
         </h2>
         <p className="text-cyan-200 mb-8 max-w-2xl mx-auto">
-          Let's discuss how WorkflowCracy can help you rule your business with intelligent automation. Our initial consultation is always free.
+          Let's discuss how AI with Ezzi can help you become irreplaceable with intelligent automation. Our initial consultation is always free.
         </p>
         <a
-          href="mailto:contact@workflowcracy.com"
+          href="mailto:contact@aiwithezzi.com"
           className="bg-secondary text-white font-bold py-3 px-8 rounded-full text-lg hover:bg-orange-600 transition-all transform hover:scale-105 inline-block"
         >
           Get a Free Consultation
