@@ -147,6 +147,14 @@ const projectData = [
     icon: <WebsiteIcon />,
     items: [
       {
+        title: 'Pristine Solar Cleaning',
+        link: 'https://pristine-solar-cleaning.vercel.app/',
+      },
+      {
+        title: 'Banana Bites',
+        link: 'https://bananabites.vercel.app',
+      },
+      {
         title: 'Ezzi Home Gadgets Ecommerce store',
         link: 'https://ezzi-home-gadgets.vercel.app/',
       },
