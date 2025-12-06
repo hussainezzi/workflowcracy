@@ -147,6 +147,14 @@ const projectData = [
     icon: <WebsiteIcon />,
     items: [
       {
+        title: 'Saifee Foods',
+        link: 'https://saifeefoods.store',
+      },
+      {
+        title: 'Hussain Nimco',
+        link: 'https://hussainnimco.vercel.app',
+      },
+      {
         title: 'Pristine Solar Cleaning',
         link: 'https://pristine-solar-cleaning.vercel.app/',
       },
