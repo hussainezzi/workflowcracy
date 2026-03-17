@@ -1,7 +1,23 @@
 import React, { useEffect, useRef, useState } from 'react';
-import { ChatBubbleLeftRightIcon, CpuChipIcon, BoltIcon, ChartBarIcon, CogIcon, DocumentChartBarIcon } from './icons';
+import { CpuChipIcon, ChartBarIcon, CogIcon, DocumentChartBarIcon } from './icons';
 
-const steps = [
+interface StepStats {
+  efficiency: number;
+  automation: number;
+  errorRate: number;
+  status: string;
+}
+
+interface Step {
+  id: number;
+  title: string;
+  subtitle: string;
+  description: string;
+  icon: React.ReactNode;
+  stats: StepStats;
+}
+
+const steps: Step[] = [
   {
     id: 1,
     title: 'System Audit',
@@ -119,7 +135,7 @@ const HowItWorks: React.FC = () => {
                              
                              {/* Active Icon */}
                              <div key={activeStep} className="transform transition-all duration-500 scale-100 animate-fade-in-up">
-                                {React.cloneElement(currentStepData.icon as React.ReactElement<any>, { className: "w-20 h-20 text-white drop-shadow-[0_0_15px_rgba(0,188,212,0.8)]" })}
+                                {React.isValidElement(currentStepData.icon) && React.cloneElement(currentStepData.icon as React.ReactElement<{ className?: string }>, { className: "w-20 h-20 text-white drop-shadow-[0_0_15px_rgba(0,188,212,0.8)]" })}
                              </div>
                         </div>
 

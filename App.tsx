@@ -6,6 +6,7 @@ import HowItWorks from './components/HowItWorks';
 import Founders from './components/Founders';
 import Videos from './components/Videos';
 import Projects from './components/Projects';
+import Pricing from './components/Pricing';
 import Testimonials from './components/Testimonials';
 import CTA from './components/CTA';
 import Footer from './components/Footer';
@@ -21,6 +22,7 @@ const App: React.FC = () => {
         <Founders />
         <Videos />
         <Projects />
+        <Pricing />
         <Testimonials />
         <CTA />
       </main>

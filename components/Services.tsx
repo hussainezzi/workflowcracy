@@ -1,7 +1,13 @@
 import React, { useEffect, useRef, useState } from 'react';
 import { CogIcon, ChartBarIcon, ChatBubbleLeftRightIcon, BoltIcon, DocumentChartBarIcon, UsersIcon } from './icons';
 
-const services = [
+interface Service {
+  icon: React.ReactNode;
+  title: string;
+  description: string;
+}
+
+const services: Service[] = [
   {
     icon: <CogIcon />,
     title: 'Custom Workflow Automation',
@@ -104,7 +110,7 @@ const Services: React.FC = () => {
                 <div className="absolute inset-0 bg-primary/10 rounded-2xl transform rotate-3 group-hover:rotate-6 transition-transform duration-300 group-hover:bg-gradient-to-tr group-hover:from-primary group-hover:to-primary-light" />
                 <div className="relative z-10 flex items-center justify-center h-16 w-16 rounded-2xl bg-white border border-slate-100 shadow-sm group-hover:-translate-y-1 group-hover:-translate-x-1 transition-transform duration-300">
                   <span className="text-primary group-hover:text-primary-light group-hover:scale-110 transition-all duration-300">
-                    {React.cloneElement(service.icon as React.ReactElement<any>, { className: "h-8 w-8" })}
+                    {React.isValidElement(service.icon) && React.cloneElement(service.icon as React.ReactElement<{ className?: string }>, { className: "h-8 w-8" })}
                   </span>
                 </div>
               </div>

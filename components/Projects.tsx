@@ -5,8 +5,11 @@ interface ProjectItem {
   title: string;
   link: string;
   videoUrl?: string;
-  categoryName?: string; // Added for the 'All' view
-  categoryIcon?: React.ReactNode; // Added for the 'All' view
+  categoryName?: string;
+  categoryIcon?: React.ReactNode;
+  isFeatured?: boolean;
+  techStack?: string[];
+  description?: string;
 }
 
 interface ProjectCategory {
@@ -25,46 +28,85 @@ const projectData: ProjectCategory[] = [
       {
         title: 'Saifee Foods',
         link: 'https://saifeefoods.store',
-        videoUrl: 'https://res.cloudinary.com/de0cllasz/video/upload/v1765031468/saifeefoods.store_vjeypo.mp4'
+        videoUrl: 'https://res.cloudinary.com/de0cllasz/video/upload/v1765031468/saifeefoods.store_vjeypo.mp4',
+        techStack: ['React', 'Node.js', 'Cloudinary'],
+        description: 'E-commerce platform for premium food products.'
       },
       {
         title: 'Hussain Nimco',
         link: 'https://hussainnimco.vercel.app',
-        videoUrl: 'https://res.cloudinary.com/de0cllasz/video/upload/v1765031443/hussainnimco_dfmisj.mp4'
+        videoUrl: 'https://res.cloudinary.com/de0cllasz/video/upload/v1765031443/hussainnimco_dfmisj.mp4',
+        techStack: ['Next.js', 'Tailwind CSS'],
+        description: 'Online store for traditional snacks and nimco.'
+      },
+      {
+        title: 'AI Video Editor',
+        link: '#',
+        techStack: ['React', 'FFmpeg.wasm', 'OpenAI'],
+        description: 'Cloud-based video editing tool powered by AI.',
+        isFeatured: true
       },
       {
         title: 'Pristine Solar Cleaning',
         link: 'https://pristine-solar-cleaning.vercel.app/',
-        videoUrl: 'https://res.cloudinary.com/de0cllasz/video/upload/v1765031447/pristine_solar_care_u0ohqu.mp4'
+        videoUrl: 'https://res.cloudinary.com/de0cllasz/video/upload/v1765031447/pristine_solar_care_u0ohqu.mp4',
+        techStack: ['React', 'Framer Motion'],
+        description: 'Service booking platform for solar panel maintenance.'
       },
       {
         title: 'Banana Bites',
         link: 'https://bananabites.vercel.app',
-        videoUrl: 'https://res.cloudinary.com/de0cllasz/video/upload/v1765031309/bananabites_tvwzgp.mp4'
+        videoUrl: 'https://res.cloudinary.com/de0cllasz/video/upload/v1765031309/bananabites_tvwzgp.mp4',
+        techStack: ['React', 'Firebase'],
+        description: 'Food delivery and ordering application.'
       },
       {
         title: 'Ezzi Home Gadgets',
         link: 'https://ezzi-home-gadgets.vercel.app/',
+        techStack: ['React', 'Tailwind'],
+        description: 'Showcase for smart home devices and gadgets.'
       },
       {
         title: 'Fruit Pop Boba',
         link: 'https://fruitypopboba.vercel.app/',
-        videoUrl: 'https://res.cloudinary.com/de0cllasz/video/upload/v1765031450/fruitypopbobba_wvry5z.mp4'
+        videoUrl: 'https://res.cloudinary.com/de0cllasz/video/upload/v1765031450/fruitypopbobba_wvry5z.mp4',
+        techStack: ['React', 'Vite'],
+        description: 'Interactive menu for a boba tea shop.'
       },
       {
         title: 'Hifz Goal Tracker',
         link: 'https://hifz-goal-tracker.vercel.app/',
-        videoUrl: 'https://res.cloudinary.com/de0cllasz/video/upload/v1765031492/quran_majeed_hifz_tracker_u1jobp.mp4'
+        videoUrl: 'https://res.cloudinary.com/de0cllasz/video/upload/v1765031492/quran_majeed_hifz_tracker_u1jobp.mp4',
+        techStack: ['React', 'LocalStorage'],
+        description: 'Progress tracking tool for Quran memorization.'
       },
       {
         title: 'AI WITH EZZI',
         link: 'https://ai-with-ezzi.vercel.app/',
-        videoUrl: 'https://res.cloudinary.com/de0cllasz/video/upload/v1765031276/ai_with_ezzi_lgxvat.mp4'
+        videoUrl: 'https://res.cloudinary.com/de0cllasz/video/upload/v1765031276/ai_with_ezzi_lgxvat.mp4',
+        techStack: ['React', 'Three.js'],
+        description: 'Personal portfolio and AI services showcase.'
       },
       {
         title: 'Ezzi Home Automation',
         link: 'https://ezzi-home-automation.vercel.app/',
-        videoUrl: 'https://res.cloudinary.com/de0cllasz/video/upload/v1765031200/ezzihomeautomation_ksvkdl.mp4'
+        videoUrl: 'https://res.cloudinary.com/de0cllasz/video/upload/v1765031200/ezzihomeautomation_ksvkdl.mp4',
+        techStack: ['React', 'IoT Integration'],
+        description: 'Control panel for smart home automation systems.'
+      },
+      {
+        title: 'MSB Nairobi Website',
+        link: 'https://msbnairobi.com/#/',
+        videoUrl: 'https://res.cloudinary.com/de0cllasz/video/upload/v1773706054/msbnairobi_site_zxavmn.mp4',
+        techStack: ['Web Design', 'Responsive'],
+        description: 'Official website for MSB Nairobi, featuring a modern and responsive design.'
+      },
+      {
+        title: 'Hakimi Herbals',
+        link: 'https://hakimiherbals.com/',
+        videoUrl: 'https://res.cloudinary.com/de0cllasz/video/upload/v1773708096/hakimi_herbals_website_etyhmc.mp4',
+        techStack: ['E-commerce', 'Herbal Products'],
+        description: 'Online store for natural herbal remedies and wellness products.'
       },
     ],
   },
@@ -76,11 +118,43 @@ const projectData: ProjectCategory[] = [
       {
         title: 'MSB Result Portal',
         link: 'https://script.google.com/macros/s/AKfycbw2Ky77yKcFASI80B0ARvyTYQWi_ydTbInhJThUUGfsKSRVayfe3RZkytJFlM1-SEOy/exec',
-        videoUrl: 'https://res.cloudinary.com/de0cllasz/video/upload/v1765031318/MSB_Result_Portal_zcekvq.mp4'
+        videoUrl: 'https://res.cloudinary.com/de0cllasz/video/upload/v1765031318/MSB_Result_Portal_zcekvq.mp4',
+        techStack: ['Google Apps Script', 'HTML/CSS'],
+        description: 'Automated result management and distribution portal.'
+      },
+      {
+        title: 'Smart Inventory AI',
+        link: '#',
+        techStack: ['Python', 'FastAPI', 'React'],
+        description: 'Predictive inventory management for large warehouses.',
+        isFeatured: true
       },
       {
         title: 'Fatemi Tailors Portal',
         link: 'https://script.google.com/macros/s/AKfycbw4V06vbG0ai7trJz2FzVD-bP7PY6qyi1xpWDS2HW82C2TlL18xIDwP1oWqKwGAkNGQvg/exec',
+        techStack: ['Google Apps Script', 'Sheets API'],
+        description: 'Order tracking and customer management for tailors.'
+      },
+      {
+        title: 'School Discipline App',
+        link: 'https://msbnairobi.com/#/hasanat',
+        videoUrl: 'https://res.cloudinary.com/de0cllasz/video/upload/v1773706373/hasnaat_app_2_cvo36b.mp4',
+        techStack: ['Google Apps Script', 'Dashboard'],
+        description: 'Behaviour marks entry, record management, and analytics dashboard.'
+      },
+      {
+        title: 'Event Registration App',
+        link: 'https://script.google.com/macros/s/AKfycbyBxThU5phVk2VR7NfYESzw1QSqlPfHVgTlLL8AjVN9BfB6iZGnDzH1502CYVkKqSad/exec',
+        videoUrl: 'https://res.cloudinary.com/de0cllasz/video/upload/v1773706014/event_registration_app_uj7kts.mp4',
+        techStack: ['Google Apps Script', 'Sheets API'],
+        description: 'School event registration system with real-time dashboard.'
+      },
+      {
+        title: 'School Management System',
+        link: 'https://script.google.com/a/macros/jameasaifiyah.edu/s/AKfycbx7tu4Ar_D0Hw3A5bBxXcngfxyYLO2_qVDzCObk1SEh6jDyOILMmpaiRVWJ42gsoH1KGg/exec',
+        videoUrl: 'https://res.cloudinary.com/de0cllasz/video/upload/v1773708714/School_Managment_System_oqcuyr.mp4',
+        techStack: ['Google Apps Script', 'Enterprise'],
+        description: 'Comprehensive management system for educational institutions.'
       },
     ],
   },
@@ -90,32 +164,53 @@ const projectData: ProjectCategory[] = [
     icon: <BoltIcon className="h-5 w-5" />,
     items: [
       {
+        title: 'AI Voice Assistant',
+        link: '#',
+        techStack: ['Whisper', 'GPT-4', 'ElevenLabs'],
+        description: 'Real-time multilingual voice assistant.',
+        isFeatured: true
+      },
+      {
         title: 'Lesson Architect AI',
         link: 'https://lesson-architect.vercel.app/',
+        techStack: ['OpenAI', 'React'],
+        description: 'AI-powered lesson planning for educators.'
       },
       {
         title: 'AI Recipe Inventor',
         link: 'https://ai-recipe-inventor.vercel.app/',
+        techStack: ['Gemini API', 'React'],
+        description: 'Generates unique recipes based on available ingredients.'
       },
       {
         title: 'Real Estate AI',
         link: 'https://real-estate-collateral-ai.vercel.app/',
+        techStack: ['OpenAI Vision', 'React'],
+        description: 'Automated property description and analysis.'
       },
       {
         title: 'AI Apparel Studio',
         link: 'https://apparel-ai-studio.vercel.app/',
+        techStack: ['Stable Diffusion', 'React'],
+        description: 'AI-driven fashion design and visualization.'
       },
       {
         title: 'Game Concept Maker',
         link: 'https://indie-game-concept-prototyper.vercel.app/',
+        techStack: ['GPT-4', 'React'],
+        description: 'Prototyping tool for indie game mechanics.'
       },
       {
         title: 'Kindergarten Gen',
         link: 'https://kindergarten-worksheet-generator.vercel.app/',
+        techStack: ['DALL-E', 'React'],
+        description: 'Automated worksheet generation for kids.'
       },
       {
         title: 'Virtual Try-on',
         link: 'https://fatemi-tailors.vercel.app/',
+        techStack: ['Computer Vision', 'React'],
+        description: 'Virtual fitting room for custom apparel.'
       },
     ],
   },
@@ -125,20 +220,35 @@ const projectData: ProjectCategory[] = [
     icon: <SunIcon className="h-5 w-5" />,
     items: [
       {
+        title: 'Solar Yield Predictor',
+        link: '#',
+        techStack: ['TensorFlow', 'Weather API'],
+        description: 'Predicts solar energy output based on weather data.',
+        isFeatured: true
+      },
+      {
         title: 'Solar Sales PWA',
         link: 'https://solar-genius-pwa.vercel.app/',
+        techStack: ['React', 'PWA'],
+        description: 'Mobile-first sales tool for solar consultants.'
       },
       {
         title: 'Proposal Presenter',
         link: 'https://solar-genius-presenter.vercel.app/',
+        techStack: ['React', 'PDFGen'],
+        description: 'Interactive proposal presentation tool.'
       },
       {
         title: 'Install Checklist',
         link: 'https://solar-pre-installation-checklist-ai.vercel.app/',
+        techStack: ['React', 'OpenAI'],
+        description: 'AI-guided pre-installation verification.'
       },
       {
         title: 'Success AI Toolkit',
         link: 'https://solar-success-ai.vercel.app/',
+        techStack: ['React', 'Analytics'],
+        description: 'Performance monitoring for solar installations.'
       },
     ],
   },
@@ -150,18 +260,26 @@ const projectData: ProjectCategory[] = [
       {
         title: 'Gmail Auto Labeling',
         link: 'https://n8n.srv1069133.hstgr.cloud/workflow/okI529F7dooyLAje',
+        techStack: ['n8n', 'OpenAI', 'Gmail API'],
+        description: 'Intelligent email categorization and labeling.'
       },
       {
         title: 'Task Manager Bot',
         link: 'https://n8n.srv1069133.hstgr.cloud/webhook/df8223bf-119c-44d5-9bbf-f74ae26828e8/chat',
+        techStack: ['n8n', 'Telegram API'],
+        description: 'Telegram bot for managing tasks and reminders.'
       },
       {
         title: 'Scholarship Chatbot',
         link: 'https://n8n.aiwithezzi.cfd/webhook/4091fa09-fb9a-4039-9411-7104d213f601/chat',
+        techStack: ['n8n', 'LangChain'],
+        description: 'AI assistant for scholarship information.'
       },
       {
         title: 'Map Scraper Agent',
         link: 'https://n8n.aiwithezzi.cfd/webhook/1368b305-38cc-4d34-be78-fd57edcbc755/chat',
+        techStack: ['n8n', 'Puppeteer'],
+        description: 'Automated data extraction from Google Maps.'
       },
     ],
   },
@@ -173,22 +291,32 @@ const projectData: ProjectCategory[] = [
       {
         title: 'Health Cost AI',
         link: 'https://healthcare-premium-predictor-msme-1514.streamlit.app/',
+        techStack: ['Scikit-learn', 'Streamlit'],
+        description: 'Predicts healthcare premiums based on user data.'
       },
       {
         title: 'Risk Modelling',
         link: 'https://credit-score-predictor-msme-1514.streamlit.app/',
+        techStack: ['XGBoost', 'Streamlit'],
+        description: 'Credit risk assessment and score prediction.'
       },
       {
         title: 'Car Damage AI',
         link: 'https://car-damage-detection-msme-1065.streamlit.app/',
+        techStack: ['PyTorch', 'Streamlit'],
+        description: 'Computer vision for car damage assessment.'
       },
       {
         title: 'Spam Classifier',
         link: 'https://sms-spam-detector-msme-1514.streamlit.app/',
+        techStack: ['NLP', 'Streamlit'],
+        description: 'Real-time SMS spam detection system.'
       },
       {
         title: 'Image Captions',
         link: 'https://image-caption-generator-msme1514.streamlit.app/',
+        techStack: ['CNN-RNN', 'Streamlit'],
+        description: 'Automated caption generation for images.'
       },
     ],
   },
@@ -200,18 +328,26 @@ const projectData: ProjectCategory[] = [
       {
         title: 'Business Insights',
         link: 'https://app.powerbi.com/view?r=eyJrIjoiZTMzMjBiYWYtYjdlNS00Y2I2LWJhYjItMzE3MWE5MWYyYjI4IiwidCI6ImM2ZTU0OWIzLTVmNDUtNDAzMi1hYWU5LWQ0MjQ0ZGM1YjJjNCJ9',
+        techStack: ['Power BI', 'SQL'],
+        description: 'Comprehensive business performance dashboard.'
       },
       {
         title: 'IPL Analysis',
         link: 'https://app.powerbi.com/view?r=eyJrIjoiZjAyYjBlNTctYzc4Yy00YWRiLTg4YmEtNDFjYmVjMTE1ODRmIiwidCI6ImM2ZTU0OWIzLTVmNDUtNDAzMi1hYWU5LWQ0MjQ0ZGM1YjJjNCJ9',
+        techStack: ['Power BI', 'Data Modeling'],
+        description: 'Deep dive into IPL match statistics and trends.'
       },
       {
         title: 'Revenue Insights',
         link: 'https://app.powerbi.com/view?r=eyJrIjoiZDdiOWVkZjAtYzMzMC00YjFmLWEyMzgtMzU5MjVkZGUxZDkzIiwidCI6ImM2ZTU0OWIzLTVmNDUtNDAzMi1hYWU5LWQ0MjQ0ZGM1YjJjNCJ9',
+        techStack: ['Power BI', 'DAX'],
+        description: 'Financial analysis and revenue forecasting.'
       },
       {
         title: 'Accident Analysis',
         link: 'https://app.powerbi.com/view?r=eyJrIjoiMDg1OTBiOWItY2Q0ZC00OTJiLWJmODktZTFhMmYxMzM4Mjk0IiwidCI6ImM2ZTU0OWIzLTVmNDUtNDAzMi1hYWU5LWQ0MjQ0ZGM1YjJjNCJ9',
+        techStack: ['Power BI', 'Geospatial'],
+        description: 'Visualizing road accident data for safety analysis.'
       },
     ],
   },
@@ -219,13 +355,11 @@ const projectData: ProjectCategory[] = [
 
 const getOptimizedVideoUrl = (url: string) => {
   if (url.includes('cloudinary.com') && url.includes('/upload/')) {
-    // Optimized for quality but keeps full length
     return url.replace('/upload/', '/upload/w_500,q_auto,f_auto,ac_none/');
   }
   return url;
 };
 
-// Generates a consistent gradient based on string characters
 const generateGradient = (str: string) => {
   const colors = [
     'from-blue-400 to-indigo-500',
@@ -290,7 +424,7 @@ const ProjectCard: React.FC<{ item: ProjectItem }> = ({ item }) => {
       onMouseEnter={handleMouseEnter}
       onMouseLeave={handleMouseLeave}
     >
-      {/* Media Section (Video or Gradient) */}
+      {/* Media Section */}
       <div className="relative aspect-[4/3] w-full overflow-hidden bg-slate-100">
         {optimizedVideoUrl ? (
           <video
@@ -309,19 +443,43 @@ const ProjectCard: React.FC<{ item: ProjectItem }> = ({ item }) => {
           </div>
         )}
         
-        {/* Category Badge overlay */}
-        {item.categoryName && (
-           <div className="absolute top-3 left-3 bg-black/50 backdrop-blur-md text-white text-xs font-medium px-2.5 py-1 rounded-full border border-white/20 shadow-sm">
-             {item.categoryName}
-           </div>
-        )}
+        {/* Badges */}
+        <div className="absolute top-3 left-3 flex flex-col gap-2">
+          {item.categoryName && (
+             <div className="bg-black/50 backdrop-blur-md text-white text-[10px] uppercase tracking-wider font-bold px-2.5 py-1 rounded-full border border-white/20 shadow-sm w-fit">
+               {item.categoryName}
+             </div>
+          )}
+          {item.isFeatured && (
+            <div className="bg-secondary text-white text-[10px] uppercase tracking-wider font-bold px-2.5 py-1 rounded-full shadow-sm w-fit flex items-center gap-1">
+              <BoltIcon className="h-3 w-3" />
+              Featured
+            </div>
+          )}
+        </div>
       </div>
 
       {/* Content Section */}
       <div className="flex flex-1 flex-col p-5">
-        <h4 className="text-lg font-bold text-dark group-hover:text-primary transition-colors mb-2 line-clamp-2">
+        <h4 className="text-lg font-bold text-dark group-hover:text-primary transition-colors mb-2 line-clamp-1">
           {item.title}
         </h4>
+        
+        {item.description && (
+          <p className="text-sm text-slate-500 line-clamp-2 mb-4">
+            {item.description}
+          </p>
+        )}
+
+        {item.techStack && (
+          <div className="flex flex-wrap gap-1.5 mb-4">
+            {item.techStack.map((tech) => (
+              <span key={tech} className="text-[10px] font-medium bg-slate-100 text-slate-600 px-2 py-0.5 rounded-md">
+                {tech}
+              </span>
+            ))}
+          </div>
+        )}
         
         <div className="mt-auto pt-4 flex items-center justify-between border-t border-slate-100">
           <a
@@ -346,10 +504,9 @@ const ProjectCard: React.FC<{ item: ProjectItem }> = ({ item }) => {
 };
 
 const Projects: React.FC = () => {
-  const [activeTab, setActiveTab] = useState('web');
+  const [activeTab, setActiveTab] = useState('all');
+  const [searchQuery, setSearchQuery] = useState('');
 
-  // Flatten items for 'All' view if we wanted that, but for now we stick to categories
-  // Let's create a special 'all' view
   const allProjects = projectData.flatMap(cat => 
     cat.items.map(item => ({
       ...item,
@@ -358,13 +515,15 @@ const Projects: React.FC = () => {
     }))
   );
 
-  const displayedProjects = activeTab === 'all' 
-    ? allProjects 
-    : projectData.find(cat => cat.id === activeTab)?.items || [];
-
-  const currentCategoryIcon = activeTab === 'all' 
-    ? <BoltIcon /> 
-    : projectData.find(cat => cat.id === activeTab)?.icon;
+  const filteredProjects = (activeTab === 'all' ? allProjects : projectData.find(cat => cat.id === activeTab)?.items.map(item => ({
+    ...item,
+    categoryName: projectData.find(cat => cat.id === activeTab)?.category,
+    categoryIcon: projectData.find(cat => cat.id === activeTab)?.icon
+  })) || []).filter(project => 
+    project.title.toLowerCase().includes(searchQuery.toLowerCase()) ||
+    project.description?.toLowerCase().includes(searchQuery.toLowerCase()) ||
+    project.techStack?.some(tech => tech.toLowerCase().includes(searchQuery.toLowerCase()))
+  );
 
   return (
     <section id="our-projects" className="py-24 bg-slate-50">
@@ -376,55 +535,77 @@ const Projects: React.FC = () => {
           </p>
         </div>
 
-        {/* Tab Navigation */}
-        <div className="flex flex-wrap justify-center gap-3 mb-12 sticky top-20 z-30 bg-slate-50/95 backdrop-blur-sm py-4 rounded-xl">
-           <button
-              onClick={() => setActiveTab('all')}
-              className={`flex items-center space-x-2 px-5 py-2.5 rounded-full text-sm font-medium transition-all duration-300 border ${
-                activeTab === 'all'
-                  ? 'bg-primary text-white border-primary shadow-lg shadow-primary/30 transform scale-105'
-                  : 'bg-white text-slate-600 border-slate-200 hover:bg-slate-100 hover:border-slate-300'
-              }`}
-            >
-              <span>All</span>
-            </button>
-          {projectData.map((category) => (
+        {/* Search and Filter Bar */}
+        <div className="max-w-4xl mx-auto mb-12 space-y-6">
+          {/* Search Input */}
+          <div className="relative group">
+            <div className="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none">
+              <svg className="h-5 w-5 text-slate-400 group-focus-within:text-primary transition-colors" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
+              </svg>
+            </div>
+            <input
+              type="text"
+              placeholder="Search projects by name, description or technology..."
+              value={searchQuery}
+              onChange={(e) => setSearchQuery(e.target.value)}
+              className="block w-full pl-11 pr-4 py-4 bg-white border border-slate-200 rounded-2xl text-slate-900 placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary transition-all shadow-sm"
+            />
+          </div>
+
+          {/* Tab Navigation */}
+          <div className="flex flex-wrap justify-center gap-2">
             <button
-              key={category.id}
-              onClick={() => setActiveTab(category.id)}
-              className={`flex items-center space-x-2 px-5 py-2.5 rounded-full text-sm font-medium transition-all duration-300 border ${
-                activeTab === category.id
-                  ? 'bg-primary text-white border-primary shadow-lg shadow-primary/30 transform scale-105'
+              onClick={() => setActiveTab('all')}
+              className={`flex items-center space-x-2 px-5 py-2.5 rounded-xl text-sm font-medium transition-all duration-300 border ${
+                activeTab === 'all'
+                  ? 'bg-primary text-white border-primary shadow-lg shadow-primary/30'
                   : 'bg-white text-slate-600 border-slate-200 hover:bg-slate-100 hover:border-slate-300'
               }`}
             >
-              <span>{category.category}</span>
+              <span>All Projects</span>
             </button>
-          ))}
+            {projectData.map((category) => (
+              <button
+                key={category.id}
+                onClick={() => setActiveTab(category.id)}
+                className={`flex items-center space-x-2 px-5 py-2.5 rounded-xl text-sm font-medium transition-all duration-300 border ${
+                  activeTab === category.id
+                    ? 'bg-primary text-white border-primary shadow-lg shadow-primary/30'
+                    : 'bg-white text-slate-600 border-slate-200 hover:bg-slate-100 hover:border-slate-300'
+                }`}
+              >
+                <span className="opacity-70">{category.icon}</span>
+                <span>{category.category}</span>
+              </button>
+            ))}
+          </div>
         </div>
 
         {/* Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 animate-fade-in">
-          {displayedProjects.map((project, index) => (
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          {filteredProjects.map((project, index) => (
             <ProjectCard key={`${project.title}-${index}`} item={project} />
           ))}
         </div>
 
-        {displayedProjects.length === 0 && (
-           <div className="text-center py-20">
-             <p className="text-slate-500">No projects found in this category yet.</p>
+        {filteredProjects.length === 0 && (
+           <div className="text-center py-20 bg-white rounded-3xl border border-dashed border-slate-300">
+             <div className="bg-slate-50 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
+               <svg className="w-8 h-8 text-slate-300" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9.172 9.172a4 4 0 015.656 0M9 10h.01M15 10h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+               </svg>
+             </div>
+             <p className="text-slate-500 font-medium">No projects found matching your criteria.</p>
+             <button 
+               onClick={() => {setSearchQuery(''); setActiveTab('all');}}
+               className="mt-4 text-primary font-semibold hover:underline"
+             >
+               Clear all filters
+             </button>
            </div>
         )}
       </div>
-      <style>{`
-        @keyframes fadeIn {
-          from { opacity: 0; transform: translateY(10px); }
-          to { opacity: 1; transform: translateY(0); }
-        }
-        .animate-fade-in {
-          animation: fadeIn 0.5s ease-out forwards;
-        }
-      `}</style>
     </section>
   );
 };

@@ -2,7 +2,11 @@ import React, { useEffect, useMemo, useState } from 'react';
 import ScheduleDemoModal from './ScheduleDemoModal';
 
 // Add type definition for anime.js to avoid TypeScript errors.
-declare const anime: any;
+interface AnimeInstance {
+  (params: Record<string, unknown>): void;
+  path(selector: string): (prop: 'x' | 'y') => number;
+}
+declare const anime: AnimeInstance;
 
 const Hero: React.FC = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -12,8 +16,8 @@ const Hero: React.FC = () => {
   const numNodes = 30;
   const numAiNodes = 5;
 
-  // Generate random node positions
-  const nodes = useMemo(() => {
+  // Generate random node positions once on mount using state initializer
+  const [nodes] = useState(() => {
     const generatedNodes = Array.from({ length: numNodes }, () => ({
       x: Math.random() * width,
       y: Math.random() * height,
@@ -32,16 +36,17 @@ const Hero: React.FC = () => {
         }
     }
     return generatedNodes;
-  }, [numNodes, numAiNodes, width, height]);
+  });
 
 
   const { paths, particles } = useMemo(() => {
+    if (nodes.length === 0) return { paths: [], particles: [] };
     const lineSet = new Set<string>();
     const pathList: { pathData: string; id: string }[] = [];
     const particleList: { id: string }[] = [];
 
     nodes.forEach((node, i) => {
-      let neighbors = nodes
+      const neighbors = nodes
         .map((n, j) => ({ ...n, index: j, dist: Math.hypot(n.x - node.x, n.y - node.y) }))
         .filter((n) => n.index !== i)
         .sort((a, b) => a.dist - b.dist)

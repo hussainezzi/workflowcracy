@@ -25,8 +25,9 @@ const ScheduleDemoModal: React.FC<ScheduleDemoModalProps> = ({ isOpen, onClose }
     company: '',
     email: '',
   });
-  const [isFormValid, setIsFormValid] = useState(false);
   const [isSubmitting, setIsSubmitting] = useState(false);
+
+  const isFormValid = formData.name.trim() !== '' && selectedServices.length > 0;
 
   useEffect(() => {
     const handleEsc = (event: KeyboardEvent) => {
@@ -47,12 +48,6 @@ const ScheduleDemoModal: React.FC<ScheduleDemoModalProps> = ({ isOpen, onClose }
       document.body.style.overflow = 'auto';
     };
   }, [isOpen, onClose]);
-
-  useEffect(() => {
-    // Validate form: name must not be empty and at least one service must be selected
-    setIsFormValid(formData.name.trim() !== '' && selectedServices.length > 0);
-  }, [formData.name, selectedServices]);
-
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const { name, value } = e.target;

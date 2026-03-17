@@ -1,0 +1,30 @@
+@import "tailwindcss";
+
+@theme {
+  --color-primary: #007B8A;
+  --color-primary-light: #00BCD4;
+  --color-secondary: #FF8C00;
+  --color-accent: #42A5F5;
+  --color-dark: #0F172A;
+}
+
+body {
+  font-family: 'Poppins', sans-serif;
+}
+
+.ai-node {
+  fill: var(--color-secondary);
+}
+
+@keyframes pulse-text-glow {
+  0%, 100% {
+    text-shadow: 0 0 3px rgba(255, 140, 0, 0.4), 0 0 5px rgba(255, 140, 0, 0.2);
+  }
+  50% {
+    text-shadow: 0 0 8px rgba(255, 140, 0, 0.9), 0 0 12px rgba(255, 140, 0, 0.5);
+  }
+}
+
+.highlight-link {
+  animation: pulse-text-glow 2.5s infinite ease-in-out;
+}
