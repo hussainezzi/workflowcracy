@@ -1,5 +1,5 @@
 import React, { useRef, useEffect, useState } from 'react';
-import { CpuChipIcon, WebsiteIcon, BoltIcon, SunIcon, ChartBarIcon, CogIcon, BriefcaseIcon } from './icons';
+import { CpuChipIcon, WebsiteIcon, BoltIcon, SunIcon, ChartBarIcon, CogIcon, BriefcaseIcon, WhatsAppIcon } from './icons';
 
 interface ProjectItem {
   title: string;
@@ -40,13 +40,6 @@ const projectData: ProjectCategory[] = [
         description: 'Online store for traditional snacks and nimco.'
       },
       {
-        title: 'AI Video Editor',
-        link: '#',
-        techStack: ['React', 'FFmpeg.wasm', 'OpenAI'],
-        description: 'Cloud-based video editing tool powered by AI.',
-        isFeatured: true
-      },
-      {
         title: 'Pristine Solar Cleaning',
         link: 'https://pristine-solar-cleaning.vercel.app/',
         videoUrl: 'https://res.cloudinary.com/de0cllasz/video/upload/v1765031447/pristine_solar_care_u0ohqu.mp4',
@@ -59,12 +52,6 @@ const projectData: ProjectCategory[] = [
         videoUrl: 'https://res.cloudinary.com/de0cllasz/video/upload/v1765031309/bananabites_tvwzgp.mp4',
         techStack: ['React', 'Firebase'],
         description: 'Food delivery and ordering application.'
-      },
-      {
-        title: 'Ezzi Home Gadgets',
-        link: 'https://ezzi-home-gadgets.vercel.app/',
-        techStack: ['React', 'Tailwind'],
-        description: 'Showcase for smart home devices and gadgets.'
       },
       {
         title: 'Fruit Pop Boba',
@@ -123,19 +110,6 @@ const projectData: ProjectCategory[] = [
         description: 'Automated result management and distribution portal.'
       },
       {
-        title: 'Smart Inventory AI',
-        link: '#',
-        techStack: ['Python', 'FastAPI', 'React'],
-        description: 'Predictive inventory management for large warehouses.',
-        isFeatured: true
-      },
-      {
-        title: 'Fatemi Tailors Portal',
-        link: 'https://script.google.com/macros/s/AKfycbw4V06vbG0ai7trJz2FzVD-bP7PY6qyi1xpWDS2HW82C2TlL18xIDwP1oWqKwGAkNGQvg/exec',
-        techStack: ['Google Apps Script', 'Sheets API'],
-        description: 'Order tracking and customer management for tailors.'
-      },
-      {
         title: 'School Discipline App',
         link: 'https://msbnairobi.com/#/hasanat',
         videoUrl: 'https://res.cloudinary.com/de0cllasz/video/upload/v1773706373/hasnaat_app_2_cvo36b.mp4',
@@ -172,13 +146,15 @@ const projectData: ProjectCategory[] = [
       },
       {
         title: 'Lesson Architect AI',
-        link: 'https://lesson-architect.vercel.app/',
+        link: 'https://lesson-architect-ai-732641501460.us-west1.run.app/',
+        videoUrl: 'https://res.cloudinary.com/de0cllasz/video/upload/v1773930179/lesson_architect_nq7bj2.mp4',
         techStack: ['OpenAI', 'React'],
         description: 'AI-powered lesson planning for educators.'
       },
       {
         title: 'AI Recipe Inventor',
-        link: 'https://ai-recipe-inventor.vercel.app/',
+        link: 'https://ai-recipe-inventor-732641501460.us-west1.run.app',
+        videoUrl: 'https://res.cloudinary.com/de0cllasz/video/upload/v1773932692/ai_recipe_generator_pyld4r.mp4',
         techStack: ['Gemini API', 'React'],
         description: 'Generates unique recipes based on available ingredients.'
       },
@@ -196,7 +172,8 @@ const projectData: ProjectCategory[] = [
       },
       {
         title: 'Game Concept Maker',
-        link: 'https://indie-game-concept-prototyper.vercel.app/',
+        link: 'https://indie-game-concept-prototyper-732641501460.us-west1.run.app/',
+        videoUrl: 'https://res.cloudinary.com/de0cllasz/video/upload/v1773924244/Game_concept_creator_2_z5eaub.mp4',
         techStack: ['GPT-4', 'React'],
         description: 'Prototyping tool for indie game mechanics.'
       },
@@ -351,6 +328,20 @@ const projectData: ProjectCategory[] = [
       },
     ],
   },
+  {
+    id: 'whatsapp',
+    category: 'WhatsApp Automations',
+    icon: <WhatsAppIcon className="h-5 w-5" />,
+    items: [
+      {
+        title: 'Leave Management App',
+        link: '#',
+        videoUrl: 'https://res.cloudinary.com/de0cllasz/video/upload/v1773713398/leave_approval_whatsapp_bot_m83xt1.mp4',
+        techStack: ['OpenClaw', 'WhatsApp API'],
+        description: 'Automated leave approval and management via WhatsApp bot.'
+      },
+    ],
+  },
 ];
 
 const getOptimizedVideoUrl = (url: string) => {
@@ -425,7 +416,7 @@ const ProjectCard: React.FC<{ item: ProjectItem }> = ({ item }) => {
       onMouseLeave={handleMouseLeave}
     >
       {/* Media Section */}
-      <div className="relative aspect-[4/3] w-full overflow-hidden bg-slate-100">
+      <div className="relative aspect-video w-full overflow-hidden bg-slate-950">
         {optimizedVideoUrl ? (
           <video
             ref={videoRef}
@@ -433,7 +424,7 @@ const ProjectCard: React.FC<{ item: ProjectItem }> = ({ item }) => {
             muted
             loop
             playsInline
-            className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-105"
+            className="h-full w-full object-contain transition-transform duration-500 group-hover:scale-102"
           />
         ) : (
           <div className={`h-full w-full bg-gradient-to-br ${gradientClass} flex items-center justify-center p-6`}>

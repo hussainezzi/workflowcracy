@@ -16,10 +16,10 @@ const testimonials = [
      avatar: 'https://res.cloudinary.com/de0cllasz/image/upload/v1760028849/tahr_photo_gfxssu.png'
   },
   {
-    quote: "I was skeptical about AI automation, but AI with Ezzi delivered beyond my expectations. Our efficiency is up, and errors are down. I highly recommend them.",
-    author: 'Samantha Bee',
-    title: 'CEO, Creative Co.',
-    avatar: 'data:image/svg+xml;base64,PHN2ZyB2aWV3Qm94PSIwIDAgMTAwIDEwMCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KICA8Y2lyY2xlIGN4PSI1MCIgY3k9IjUwIiByPSI1MCIgZmlsbD0iIzQyQTVGNSIvPgogIDxwYXRoIGQ9Ik01MCA1OCBDIDQ2IDU4LCA0NCA1NSwgNDQgNTEgQyA0NCA0NSwgNDcgNDAsIDUwIDQwIEMgNTMgNDAsIDU2IDQ1LCA1NiA1MSBDIDU2IDU1LCA1NCA1OCwgNTAgNTggWiBNNTAgNjAgQyA2NCA2MCwgNzIgNjgsIDcyIDgyIEwgMjggODIgQyAyOCA2OCwgMzYgNjAsIDUwIDYwIFoiIGZpbGw9IiNGRkZFRkUiLz4KPC9zdmc+'
+    quote: "AI with Ezzi developed a beautiful and functional e-commerce platform for our herbal products. The integration was smooth, and the user interface is exactly what we needed to showcase our natural remedies. Their expertise in automation has saved us countless hours!",
+    author: 'Hakimi Herbals',
+    title: 'Wellness & Natural Remedies',
+    avatar: 'https://res.cloudinary.com/de0cllasz/image/upload/v1773713323/1e1ee325-b985-4a47-a3ca-b5475876c395.png'
   },
 ];
 
