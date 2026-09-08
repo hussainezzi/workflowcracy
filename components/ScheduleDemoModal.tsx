@@ -132,32 +132,32 @@ You can also reach me at: ${formData.email.trim()}`;
       role="dialog"
     >
       <div 
-        className="bg-white rounded-xl shadow-2xl p-8 m-4 max-w-lg w-full text-dark relative transform transition-all duration-300 scale-95 opacity-0 animate-scale-in"
+        className="bg-white rounded-xl shadow-2xl p-8 m-4 max-w-lg w-full text-brand-deep relative transform transition-all duration-300 scale-95 opacity-0 animate-scale-in"
         onClick={e => e.stopPropagation()}
       >
         <button 
           onClick={onClose} 
-          className="absolute top-4 right-4 text-slate-400 hover:text-dark transition-colors"
+          className="absolute top-4 right-4 text-slate-400 hover:text-brand-deep transition-colors"
           aria-label="Close modal"
         >
           <XIcon className="h-6 w-6" />
         </button>
 
-        <h2 className="text-2xl font-bold text-primary mb-2">Request a Free Consultation</h2>
+        <h2 className="text-2xl font-bold text-brand mb-2">Request a Free Consultation</h2>
         <p className="text-slate-600 mb-6">Let's discuss how we can elevate your business.</p>
         
         <div className="space-y-4 mb-6">
           <div>
             <label htmlFor="name" className="block text-sm font-medium text-slate-700 mb-1">Name <span className="text-red-500">*</span></label>
-            <input type="text" name="name" id="name" value={formData.name} onChange={handleInputChange} className="w-full px-3 py-2 border border-slate-300 rounded-md shadow-sm focus:ring-primary focus:border-primary" placeholder="e.g., John Doe" required />
+            <input type="text" name="name" id="name" value={formData.name} onChange={handleInputChange} className="w-full px-3 py-2 border border-slate-300 rounded-md shadow-sm focus:ring-brand focus:border-brand" placeholder="e.g., John Doe" required />
           </div>
           <div>
             <label htmlFor="company" className="block text-sm font-medium text-slate-700 mb-1">Company / Shop Name <span className="text-slate-400">(Optional)</span></label>
-            <input type="text" name="company" id="company" value={formData.company} onChange={handleInputChange} className="w-full px-3 py-2 border border-slate-300 rounded-md shadow-sm focus:ring-primary focus:border-primary" placeholder="e.g., Innovate Inc." />
+            <input type="text" name="company" id="company" value={formData.company} onChange={handleInputChange} className="w-full px-3 py-2 border border-slate-300 rounded-md shadow-sm focus:ring-brand focus:border-brand" placeholder="e.g., Innovate Inc." />
           </div>
            <div>
             <label htmlFor="email" className="block text-sm font-medium text-slate-700 mb-1">Email <span className="text-slate-400">(Optional)</span></label>
-            <input type="email" name="email" id="email" value={formData.email} onChange={handleInputChange} className="w-full px-3 py-2 border border-slate-300 rounded-md shadow-sm focus:ring-primary focus:border-primary" placeholder="e.g., john.doe@example.com" />
+            <input type="email" name="email" id="email" value={formData.email} onChange={handleInputChange} className="w-full px-3 py-2 border border-slate-300 rounded-md shadow-sm focus:ring-brand focus:border-brand" placeholder="e.g., john.doe@example.com" />
           </div>
         </div>
         
@@ -167,7 +167,7 @@ You can also reach me at: ${formData.email.trim()}`;
             <label key={service} className="flex items-center p-2 rounded-lg hover:bg-slate-100 transition-colors cursor-pointer">
               <input
                 type="checkbox"
-                className="h-5 w-5 rounded border-gray-300 text-primary focus:ring-primary"
+                className="h-5 w-5 rounded border-gray-300 text-brand focus:ring-brand"
                 checked={selectedServices.includes(service)}
                 onChange={() => handleCheckboxChange(service)}
               />
@@ -179,7 +179,7 @@ You can also reach me at: ${formData.email.trim()}`;
         <button
           onClick={handleSubmit}
           disabled={!isFormValid || isSubmitting}
-          className="w-full bg-secondary text-white font-bold py-3 px-8 rounded-full text-lg hover:bg-orange-600 transition-all transform hover:scale-105 disabled:bg-orange-300 disabled:cursor-not-allowed disabled:scale-100"
+          className="w-full bg-action-strong text-white font-bold py-3 px-8 rounded-full text-lg hover:bg-[#9A3412] transition-all transform hover:scale-105 disabled:bg-orange-300 disabled:cursor-not-allowed disabled:scale-100"
         >
           {isSubmitting ? 'Submitting...' : 'Send via WhatsApp'}
         </button>

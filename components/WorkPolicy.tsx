@@ -23,7 +23,7 @@ const WorkPolicy: React.FC = () => {
       <div className="container mx-auto px-6 max-w-4xl">
         <Link 
           to="/" 
-          className="inline-flex items-center text-primary hover:text-cyan-600 font-medium mb-8 transition-colors group"
+          className="inline-flex items-center text-brand hover:text-cyan-600 font-medium mb-8 transition-colors group"
         >
           <ArrowLeft className="w-4 h-4 mr-2 transition-transform group-hover:-translate-x-1" />
           Back to Home
@@ -35,7 +35,7 @@ const WorkPolicy: React.FC = () => {
             INTERNAL OPERATIONS
           </div>
           <h1 className="text-4xl md:text-5xl font-extrabold text-slate-900 mb-6 tracking-tight">
-            AI with Ezzi: <span className="text-primary">The Hybrid Operations Policy</span>
+            AI with Ezzi: <span className="text-brand">The Hybrid Operations Policy</span>
           </h1>
           <p className="text-xl text-slate-600 leading-relaxed">
             At AI with Ezzi, our mission is to empower the "One-Person Business" through automation. 
@@ -91,15 +91,15 @@ const WorkPolicy: React.FC = () => {
               </p>
               <ul className="space-y-4">
                 <li className="flex items-start gap-3">
-                  <CheckCircle2 className="w-5 h-5 text-primary mt-1 shrink-0" />
+                  <CheckCircle2 className="w-5 h-5 text-brand mt-1 shrink-0" />
                   <p className="text-slate-700"><strong>You are a Manager of Agents:</strong> Before you do a repetitive task, you must ask: "Can an OpenClaw Swarm do this?"</p>
                 </li>
                 <li className="flex items-start gap-3">
-                  <CheckCircle2 className="w-5 h-5 text-primary mt-1 shrink-0" />
+                  <CheckCircle2 className="w-5 h-5 text-brand mt-1 shrink-0" />
                   <p className="text-slate-700"><strong>Mandatory AI Delegation:</strong> First drafts, data entry, basic research, code boilerplate, and initial QA are to be handled by AI. Human energy is reserved for strategy and high-level architecture.</p>
                 </li>
                 <li className="flex items-start gap-3">
-                  <CheckCircle2 className="w-5 h-5 text-primary mt-1 shrink-0" />
+                  <CheckCircle2 className="w-5 h-5 text-brand mt-1 shrink-0" />
                   <p className="text-slate-700"><strong>Internal Automation First:</strong> We eat our own dog food. All internal HR requests, expense tracking, and meeting notes must be routed through our own internal WhatsApp Agent Swarms.</p>
                 </li>
               </ul>
@@ -117,16 +117,16 @@ const WorkPolicy: React.FC = () => {
               </p>
               <div className="bg-slate-900 rounded-2xl p-6 text-slate-300">
                 <div className="flex items-center gap-2 mb-4 text-white font-bold">
-                  <Bot className="w-5 h-5 text-primary" />
+                  <Bot className="w-5 h-5 text-brand" />
                   COMMAND PROTOCOLS
                 </div>
                 <ul className="space-y-3 text-sm">
                   <li className="flex gap-2">
-                    <span className="text-primary">•</span>
+                    <span className="text-brand">•</span>
                     Voice notes are highly encouraged for complex thoughts (AI agents will transcribe and summarize them).
                   </li>
                   <li className="flex gap-2">
-                    <span className="text-primary">•</span>
+                    <span className="text-brand">•</span>
                     If a conversation takes more than 5 back-and-forth messages, escalate it to a 10-minute voice call or an in-person sync.
                   </li>
                 </ul>
@@ -158,10 +158,10 @@ const WorkPolicy: React.FC = () => {
           </div>
           <div className="relative z-10">
             <div className="flex items-center gap-3 mb-6">
-              <div className="w-10 h-10 rounded-full bg-primary/20 flex items-center justify-center border border-primary/30">
+              <div className="w-10 h-10 rounded-full bg-brand/20 flex items-center justify-center border border-brand/30">
                 <span className="text-xl">💼</span>
               </div>
-              <h4 className="text-lg font-bold text-primary">Consultant’s Note to Hussain</h4>
+              <h4 className="text-lg font-bold text-brand">Consultant’s Note to Hussain</h4>
             </div>
             <p className="text-slate-300 leading-relaxed mb-6">
               This positions you perfectly for scaling. If you start hiring "AI Orchestrators" (Phase 2 of our roadmap), 

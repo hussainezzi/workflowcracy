@@ -1,147 +1,113 @@
-import React, { useState, useEffect } from 'react';
-import { useLocation, useNavigate, Link } from 'react-router-dom';
+import React, { useEffect, useState } from 'react';
+import { Link, NavLink } from 'react-router-dom';
 import { LogoIcon } from './icons';
+import { NAV_LINKS, SITE } from '../content/site';
+import { useScrolled } from '../hooks/useBrowser';
 
 const Header: React.FC = () => {
-  const [isScrolled, setIsScrolled] = useState(false);
-  const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const location = useLocation();
-  const navigate = useNavigate();
+  const scrolled = useScrolled(10);
+  const [menuOpen, setMenuOpen] = useState(false);
 
+  const closeMenu = () => setMenuOpen(false);
+
+  // A menu that covers the page must be dismissible from the keyboard.
   useEffect(() => {
-    const handleScroll = () => {
-      setIsScrolled(window.scrollY > 10);
+    if (!menuOpen) return;
+    const onKey = (event: KeyboardEvent) => {
+      if (event.key === 'Escape') setMenuOpen(false);
     };
-    window.addEventListener('scroll', handleScroll);
-    return () => {
-      window.removeEventListener('scroll', handleScroll);
-    };
-  }, []);
+    window.addEventListener('keydown', onKey);
+    return () => window.removeEventListener('keydown', onKey);
+  }, [menuOpen]);
 
-  const handleNavClick = (event: React.MouseEvent<HTMLAnchorElement>) => {
-    const href = event.currentTarget.getAttribute('href');
-    if (!href || !href.startsWith('#')) return;
-
-    event.preventDefault();
-    const targetId = href.substring(1);
-    
-    if (location.pathname !== '/') {
-      navigate('/', { state: { scrollTo: targetId } });
-    } else {
-      if (href === '#home') {
-        window.scrollTo({ top: 0, behavior: 'smooth' });
-      } else {
-        const targetElement = document.getElementById(targetId);
-        if (targetElement) {
-          targetElement.scrollIntoView({ behavior: 'smooth' });
-        }
-      }
-    }
-
-    if (isMenuOpen) {
-      setIsMenuOpen(false);
-    }
-  };
-
-  // Handle scroll after navigation from another page
-  useEffect(() => {
-    const state = location.state as { scrollTo?: string } | null;
-    if (location.pathname === '/' && state?.scrollTo) {
-      const targetId = state.scrollTo;
-      setTimeout(() => {
-        const targetElement = document.getElementById(targetId);
-        if (targetElement) {
-          targetElement.scrollIntoView({ behavior: 'smooth' });
-        }
-      }, 100);
-      // Clear state
-      navigate('/', { replace: true, state: {} });
-    }
-  }, [location, navigate]);
-
-  const navLinks = [
-    { name: 'Services', href: '#services' },
-    { name: 'How It Works', href: '#how-it-works' },
-    { name: 'Our Projects', href: '#our-projects', highlight: true },
-    { name: 'Pricing', href: '#pricing' },
-    { name: 'Work Policy', to: '/work-policy' },
-    { name: 'Testimonials', href: '#testimonials' },
-  ];
-
-  const isWorkPolicy = location.pathname === '/work-policy';
-  const headerTextColor = isScrolled || isWorkPolicy ? 'text-dark' : 'text-white';
-  const headerBg = isScrolled || isWorkPolicy ? 'bg-white/90 shadow-md backdrop-blur-sm' : 'bg-transparent';
+  const linkClasses = ({ isActive }: { isActive: boolean }) =>
+    `font-medium transition-colors ${
+      isActive
+        ? 'text-[var(--color-brand)]'
+        : 'text-[var(--color-brand-deep)] hover:text-[var(--color-brand)]'
+    }`;
 
   return (
-    <header className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${headerBg}`}>
-      <div className="container mx-auto px-6 py-3">
-        <div className="flex justify-between items-center">
-          <Link to="/" className="flex items-center gap-2" onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}>
+    <header
+      className={`fixed inset-x-0 top-0 z-50 transition-all duration-300 ${
+        scrolled || menuOpen
+          ? 'border-b border-slate-200/70 bg-white/90 shadow-sm backdrop-blur'
+          : 'bg-white/60 backdrop-blur-sm'
+      }`}
+    >
+      <div className="container mx-auto px-6">
+        <div className="flex items-center justify-between py-3">
+          <Link to="/" className="flex items-center gap-2" aria-label={`${SITE.name} home`}>
             <LogoIcon className="h-10 w-auto" />
-            <span className={`text-xl lg:text-2xl font-bold hidden sm:inline transition-colors ${headerTextColor}`}>AI with Ezzi</span>
+            <span className="hidden text-xl font-bold text-[var(--color-brand-deep)] sm:inline">
+              {SITE.name}
+            </span>
           </Link>
-          <div className="hidden md:flex items-center space-x-4 lg:space-x-6">
-            {navLinks.map((link) => (
-              link.to ? (
-                <Link
-                  key={link.name}
-                  to={link.to}
-                  className={`font-medium whitespace-nowrap transition-colors ${headerTextColor} hover:text-primary`}
-                >
-                  {link.name}
-                </Link>
-              ) : (
-                <a 
-                  key={link.name} 
-                  href={link.href} 
-                  onClick={handleNavClick} 
-                  className={`font-medium whitespace-nowrap transition-colors ${headerTextColor} hover:text-primary ${link.highlight ? 'highlight-link' : ''}`}
-                >
-                  {link.name}
-                </a>
-              )
+
+          <nav className="hidden items-center gap-7 md:flex" aria-label="Main">
+            {NAV_LINKS.map((link) => (
+              <NavLink key={link.to} to={link.to} className={linkClasses}>
+                {link.name}
+              </NavLink>
             ))}
-            <a href="#contact" onClick={handleNavClick} className="bg-secondary text-white font-semibold px-5 py-2 rounded-full hover:bg-orange-600 transition-all transform hover:scale-105 whitespace-nowrap">
-              Get Started
-            </a>
-          </div>
-          <div className="md:hidden">
-            <button onClick={() => setIsMenuOpen(!isMenuOpen)} className={`focus:outline-none transition-colors ${headerTextColor}`} aria-label={isMenuOpen ? "Close menu" : "Open menu"}>
-              <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d={isMenuOpen ? 'M6 18L18 6M6 6l12 12' : 'M4 6h16M4 12h16m-7 6h7'}></path>
-              </svg>
-            </button>
-          </div>
+            <Link
+              to="/contact"
+              className="rounded-full bg-[var(--color-action-strong)] px-5 py-2 font-semibold text-white transition-all hover:-translate-y-0.5 hover:bg-[#9A3412]"
+            >
+              Book a call
+            </Link>
+          </nav>
+
+          <button
+            type="button"
+            onClick={() => setMenuOpen((open) => !open)}
+            className="text-[var(--color-brand-deep)] md:hidden"
+            aria-expanded={menuOpen}
+            aria-controls="mobile-menu"
+            aria-label={menuOpen ? 'Close menu' : 'Open menu'}
+          >
+            <svg className="h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth={2}
+                d={menuOpen ? 'M6 18L18 6M6 6l12 12' : 'M4 6h16M4 12h16m-7 6h7'}
+              />
+            </svg>
+          </button>
         </div>
-        {isMenuOpen && (
-          <div className="md:hidden mt-4 bg-white rounded-lg shadow-xl p-4">
-            <nav className="flex flex-col space-y-4">
-              {navLinks.map((link) => (
-                link.to ? (
-                  <Link
-                    key={link.name}
+
+        {menuOpen && (
+          <nav id="mobile-menu" className="pb-4 md:hidden" aria-label="Main">
+            <ul className="flex flex-col gap-1">
+              {NAV_LINKS.map((link) => (
+                <li key={link.to}>
+                  <NavLink
                     to={link.to}
-                    onClick={() => setIsMenuOpen(false)}
-                    className="text-dark hover:text-primary transition-colors font-medium text-center"
+                    onClick={closeMenu}
+                    className={({ isActive }) =>
+                      `block rounded-lg px-4 py-3 font-medium transition-colors ${
+                        isActive
+                          ? 'bg-[var(--color-brand)]/10 text-[var(--color-brand)]'
+                          : 'text-[var(--color-brand-deep)] hover:bg-slate-50'
+                      }`
+                    }
                   >
                     {link.name}
-                  </Link>
-                ) : (
-                  <a 
-                    key={link.name} 
-                    href={link.href} 
-                    onClick={handleNavClick} 
-                    className={`text-dark hover:text-primary transition-colors font-medium text-center ${link.highlight ? 'highlight-link' : ''}`}
-                  >
-                    {link.name}
-                  </a>
-                )
+                  </NavLink>
+                </li>
               ))}
-              <a href="#contact" onClick={handleNavClick} className="bg-secondary text-white font-semibold text-center px-5 py-2 rounded-full hover:bg-orange-600 transition-all">
-                Get Started
-              </a>
-            </nav>
-          </div>
+              <li className="mt-2">
+                <Link
+                  to="/contact"
+                  onClick={closeMenu}
+                  className="block rounded-full bg-[var(--color-action-strong)] px-5 py-3 text-center font-semibold text-white"
+                >
+                  Book a call
+                </Link>
+              </li>
+            </ul>
+          </nav>
         )}
       </div>
     </header>
