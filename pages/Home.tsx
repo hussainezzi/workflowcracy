@@ -26,7 +26,18 @@ const Home: React.FC = () => {
         <div className="sticky top-0 h-screen overflow-hidden">
           <ScrollStage targetRef={stageRef} />
 
-          <div className="relative z-10 flex h-full items-center">
+          {/*
+            Phone-only scrim. The mark is dropped into the lower half on narrow
+            screens, but its orbiting ring is wide and can still swing up behind
+            the headline — and the mark's blue against the Deep Ocean heading is
+            blue on blue. This keeps the top of the screen reliably light.
+          */}
+          <div
+            aria-hidden="true"
+            className="pointer-events-none absolute inset-x-0 top-0 h-[62%] bg-gradient-to-b from-[var(--color-ice)] via-[var(--color-ice)]/90 to-transparent md:hidden"
+          />
+
+          <div className="relative z-10 flex h-full items-start pt-28 md:items-center md:pt-0">
             <div className="container mx-auto px-6">
               <div className="max-w-2xl">
                 <Reveal>

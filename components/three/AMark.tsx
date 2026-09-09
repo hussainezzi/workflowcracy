@@ -45,6 +45,13 @@ const CROSSBAR: [number, number][] = [
 
 const easeOut = (t: number) => 1 - Math.pow(1 - t, 3);
 
+/** Matches Tailwind's md breakpoint, where the hero layout stops stacking. */
+const NARROW_BREAKPOINT = 768;
+/** How far down the mark sits on a phone, in world units. */
+const MOBILE_DROP = -1.35;
+const MOBILE_SCALE = 0.72;
+const DESKTOP_SCALE = 1.05;
+
 interface AMarkProps {
   progressRef: React.RefObject<number>;
 }
@@ -88,10 +95,17 @@ const AMark: React.FC<AMarkProps> = ({ progressRef }) => {
     pointer.current.x += (state.pointer.x - pointer.current.x) * Math.min(1, delta * 3);
     pointer.current.y += (state.pointer.y - pointer.current.y) * Math.min(1, delta * 3);
 
+    // On a phone the layout stacks, so the mark would sit directly behind the
+    // headline — and the mark's blue stroke against the Deep Ocean heading is
+    // blue on blue. Drop it into the lower half of the screen and shrink it, so
+    // the text keeps a clean background and the mark still reads.
+    const narrow = state.size.width < NARROW_BREAKPOINT;
+
     if (group.current) {
       group.current.rotation.y = -0.5 + eased * Math.PI * 1.15 + pointer.current.x * 0.25;
       group.current.rotation.x = -pointer.current.y * 0.15 + eased * 0.12;
-      group.current.position.y = eased * 0.25;
+      group.current.position.y = eased * 0.25 + (narrow ? MOBILE_DROP : 0);
+      group.current.scale.setScalar(narrow ? MOBILE_SCALE : DESKTOP_SCALE);
     }
 
     // The mark opens as you scroll, then settles back together.
@@ -121,12 +135,12 @@ const AMark: React.FC<AMarkProps> = ({ progressRef }) => {
     // object every frame and React never re-renders because of it. The lint
     // rule cannot tell that apart from mutating React-owned state.
     /* eslint-disable-next-line react-hooks/immutability */
-    camera.position.z = 6.4 - eased * 1.5;
+    camera.position.z = (narrow ? 7.1 : 6.4) - eased * 1.5;
     camera.lookAt(0, 0, 0);
   });
 
   return (
-    <group ref={group} scale={1.05}>
+    <group ref={group} scale={DESKTOP_SCALE}>
       <mesh ref={leftRef} geometry={geometries.left} castShadow>
         <meshStandardMaterial color={BRAND_BLUE} metalness={0.35} roughness={0.28} />
       </mesh>
